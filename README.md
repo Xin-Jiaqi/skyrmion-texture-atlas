@@ -4,9 +4,9 @@
 
 一个面向磁性拓扑纹理学习与科研交流的单页交互可视化工具。它把常见的二维 magnetic skyrmion 家族放进同一套几何语言中，通过主磁纹理、箭头场、颜色场、参数调节和原文定位，帮助建立 `polarity p`、`vorticity m`、`helicity γ` 与拓扑荷之间的直观联系。
 
-> 在线体验：`https://YOUR_GITHUB_USERNAME.github.io/topological-magnetic-texture-atlas/`
+> 在线体验：[https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/](https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/)
 >
-> GitHub 仓库：`https://github.com/YOUR_GITHUB_USERNAME/topological-magnetic-texture-atlas`
+> GitHub 仓库：[https://github.com/Xin-Jiaqi/topological-magnetic-texture-atlas](https://github.com/Xin-Jiaqi/topological-magnetic-texture-atlas)
 
 ## 功能
 
@@ -92,7 +92,7 @@ AFM / FiM 图中的上下间距用于视觉拆解，不代表真实晶格层间�
 
 部署完成后的项目站点通常为：
 
-`https://YOUR_GITHUB_USERNAME.github.io/topological-magnetic-texture-atlas/`
+`https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/`
 
 ## 仓库结构
 
@@ -100,6 +100,7 @@ AFM / FiM 图中的上下间距用于视觉拆解，不代表真实晶格层间�
     README.md
     skyrmion_help_v50.md
     docs/scientific_interactive_web_iteration_method.md
+    docs/audit_v50_static.json
     知乎公众号_磁性Skyrmion交互纹理图鉴_推广长文.md
     Beyond_skyrmions_Physics_Reports_895_2021.pdf
 
@@ -129,6 +130,12 @@ DOI: https://doi.org/10.1016/j.physrep.2020.10.001
 - 组会、课堂或科普展示
 - 导出磁纹理 PNG 用于个人学习笔记和演示
 
-## 说明
+## 科学边界
 
 网页中的部分复合纹理与多子晶格纹理采用教学型可视化构造，重点是展示几何关系和参数边界。涉及具体材料、微磁能量、真实晶格或动力学时，请回到原论文及对应材料文献核对。
+
+当前纹理由解析/教学构造生成，没有执行材料特定的微磁能量最小化，也不替代 MuMax3、OOMMF 等微磁模拟工具。页面标出的拓扑荷来自目标构型定义；后续版本计划加入离散拓扑积分和网格收敛检查。
+
+## 许可
+
+原论文 PDF 采用 CC BY 4.0。项目代码与原创界面的独立开源许可仍待维护者确定；公开复用前请保留仓库与论文引用。

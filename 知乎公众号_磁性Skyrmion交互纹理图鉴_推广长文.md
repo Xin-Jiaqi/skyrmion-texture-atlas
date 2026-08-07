@@ -110,9 +110,9 @@ DOI：10.1016/j.physrep.2020.10.001
 
 整个工具目前是一个单文件静态网页，没有前端框架依赖，下载后直接打开 `index.html` 就可以离线运行。我也把完整知识笔记、原始综述 PDF 和科学交互网页的迭代审计方法一起整理进了仓库。
 
-GitHub：**[发布后填写仓库地址]**
+GitHub：[https://github.com/Xin-Jiaqi/topological-magnetic-texture-atlas](https://github.com/Xin-Jiaqi/topological-magnetic-texture-atlas)
 
-在线体验：**[发布 GitHub Pages 后填写地址]**
+在线体验：[https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/](https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/)
 
 网页支持直接导出当前主磁纹理 PNG。如果只是想在笔记、组会或课堂里快速找一张结构示意，也可以把它当作一个小型图形生成器使用。
 
