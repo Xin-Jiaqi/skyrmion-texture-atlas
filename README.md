@@ -15,9 +15,9 @@
 
 ![Topological Magnetic Texture Atlas](assets/preview.png)
 
-| Néel skyrmion | Antiskyrmion | AFM skyrmion |
-|---|---|---|
-| ![](assets/presets/neel.png) | ![](assets/presets/antiskyrmion.png) | ![](assets/presets/afm.png) |
+| Néel skyrmion | Antiskyrmion | AFM skyrmion | FiM skyrmion |
+|---|---|---|---|
+| ![](assets/presets/neel.png) | ![](assets/presets/antiskyrmion.png) | ![](assets/presets/afm.png) | ![](assets/presets/ferri.png) |
 
 ## 功能
 
