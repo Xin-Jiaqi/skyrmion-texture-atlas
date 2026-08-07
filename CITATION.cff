@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Topological Magnetic Texture Atlas"
+type: software
+authors:
+  - family-names: "Xin"
+    given-names: "Jiaqi"
+repository-code: "https://github.com/Xin-Jiaqi/skyrmion-texture-atlas"
+url: "https://xin-jiaqi.github.io/skyrmion-texture-atlas/"
+version: "1.0.0"
+date-released: "2026-08-07"
+license: MIT
+keywords:
+  - skyrmion
+  - topological magnetism
+  - scientific visualization
+preferred-citation:
+  type: software
+  authors:
+    - family-names: "Xin"
+      given-names: "Jiaqi"
+  title: "Topological Magnetic Texture Atlas"
+  version: "1.0.0"
+  year: 2026
+  url: "https://github.com/Xin-Jiaqi/skyrmion-texture-atlas"

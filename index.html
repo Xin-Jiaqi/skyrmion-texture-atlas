@@ -219,6 +219,31 @@ a{text-decoration:none;color:inherit}
 .infoCard{align-self:stretch}
 .resourceBox{margin-top:auto}
 
+/* Mobile: stack visual, information, and controls; preserve desktop composition above 900px. */
+@media (max-width:900px){
+  html,body{height:auto;min-height:100%;overflow:auto}
+  .page{height:auto;min-height:100vh;display:flex;flex-direction:column;padding:8px;overflow:visible}
+  .visualCard,.infoCard,.controlsCard{width:100%;min-width:0}
+  .visualCard{height:auto;min-height:720px}
+  .visualTop{flex-direction:column;align-items:stretch;gap:10px}
+  .titleBlock p{white-space:normal}
+  .presetWrap{width:100%}
+  .visualBody{grid-template-columns:1fr;grid-template-rows:minmax(430px,55vh) 320px}
+  .splitColumn{grid-template-columns:1fr 1fr;grid-template-rows:1fr}
+  .infoCard{max-height:none;overflow:visible}
+  .controlsCard{display:block;height:auto}
+  .controlMain,.viewSide,.advanced{margin-top:10px}
+  .sliderGrid,.advancedBody{grid-template-columns:1fr!important}
+  .advanced[open] .advancedBody{position:static;box-shadow:none;margin-top:8px}
+}
+@media (max-width:560px){
+  .visualCard{min-height:950px}
+  .visualBody{grid-template-rows:minmax(440px,58vh) 470px}
+  .splitColumn{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .paramStrip{grid-template-columns:1fr 1fr}
+  .quickGrid,.quickStats{grid-template-columns:1fr 1fr}
+}
+
 
 .sublatticeLegend{font-size:11px;color:#5b6577}
 </style>
@@ -285,7 +310,7 @@ a{text-decoration:none;color:inherit}
       <div class="resourceLinks">
         <button id="helpBtn" class="resourceLink">使用指南</button>
         <a href="https://zhuanlan.zhihu.com/p/2069027257536999823" target="_blank" rel="noopener" class="resourceLink" title="磁性 Skyrmion 家族综述：从 Néel、Bloch 到 Meron、Hopfion - 辛嘉琪">延伸阅读 · 知乎</a>
-        <a href="./Beyond_skyrmions_Physics_Reports_895_2021.pdf" download class="resourceLink">原文 PDF</a>
+        <a href="./references/Beyond_skyrmions_Physics_Reports_895_2021.pdf" download class="resourceLink">原文 PDF</a>
         <a href="https://doi.org/10.1016/j.physrep.2020.10.001" target="_blank" rel="noopener" class="resourceLink">DOI / 期刊页面</a>
         <button id="exportPNG" class="resourceLink">导出 PNG</button>
       </div>
@@ -328,7 +353,7 @@ const $=id=>document.getElementById(id);
 const C={main:$('mainCanvas'),arrow:$('arrowCanvas'),color:$('colorCanvas'),comp:$('compositeCanvas')};
 const DEFAULTS={c:.11,beta:.995,q:3,rings:10,L:.20};
 const DOI='https://doi.org/10.1016/j.physrep.2020.10.001';
-const LOCAL_PDF='./Beyond_skyrmions_Physics_Reports_895_2021.pdf';
+const LOCAL_PDF='./references/Beyond_skyrmions_Physics_Reports_895_2021.pdf';
 const PRESET_EXPORT_NAMES={neel_out:'Neel_skyrmion_outward',neel_in:'Neel_skyrmion_inward',bloch_cw:'Bloch_skyrmion_clockwise',bloch_ccw:'Bloch_skyrmion_counterclockwise',intermediate:'Intermediate_helicity_skyrmion',higher2:'Higher_order_skyrmion_m_equals_2',anti:'Antiskyrmion',skyrmionium:'Skyrmionium',biskyrmion:'Biskyrmion',meron:'Meron',bimeron:'Bimeron',afm_sk:'Antiferromagnetic_skyrmion',ferri_sk:'Ferrimagnetic_skyrmion'};
 const TERM_DATA={
   topology:{title:'拓扑荷 N<sub>Sk</sub> / topological charge',html:`<p class="lead">理解 skyrmion 家族，首先要把四个量分清：拓扑荷 N<sub>Sk</sub>、polarity p、vorticity m 和 helicity γ。</p><div class="formula">m(r) = (sinθ cosΦ, sinθ sinΦ, cosθ)<sup>T</sup><br>其中 θ 控制面外分量，Φ 控制面内方位；实空间位置可写作 r = r(cosφ, sinφ)。对于理想轴对称 skyrmion，常有 θ = θ(r)，Φ = Φ(φ)。</div><p>原文 Eqs. (1)–(2) 定义</p><div class="formula">N<sub>Sk</sub> = ∫ n<sub>Sk</sub>(r) d²r<br>n<sub>Sk</sub>(r) = (1 / 4π) m · [∂<sub>x</sub>m × ∂<sub>y</sub>m]</div><p>N<sub>Sk</sub> 记录磁化方向覆盖单位球面的次数和方向；局域密度 n<sub>Sk</sub>(r) 告诉我们拓扑绕转主要集中在哪些区域。对完整轴对称 skyrmion，常有 N<sub>Sk</sub> = m p。</p>`},

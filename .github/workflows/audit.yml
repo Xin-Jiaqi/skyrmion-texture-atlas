@@ -1,0 +1,28 @@
+name: Static audit
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files and links
+        run: |
+          test -f index.html
+          test -f README.md
+          test -f LICENSE
+          test -f CITATION.cff
+          test -f docs/guide.md
+          test -f references/Beyond_skyrmions_Physics_Reports_895_2021.pdf
+          grep -q 'const PRESETS' index.html || grep -q 'const DATA' index.html
+          ! grep -R 'YOUR_GITHUB_USERNAME\|topological-magnetic-texture-atlas\|skyrmion_help_v50' README.md docs index.html CITATION.cff
+      - name: Check preset count
+        run: |
+          count=$(grep -o '<option value=' index.html | wc -l | tr -d ' ')
+          test "$count" = "13"

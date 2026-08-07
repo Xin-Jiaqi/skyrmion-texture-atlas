@@ -2,11 +2,22 @@
 
 **磁性 Skyrmion 家族 · 交互纹理图鉴**
 
-一个面向磁性拓扑纹理学习与科研交流的单页交互可视化工具。它把常见的二维 magnetic skyrmion 家族放进同一套几何语言中，通过主磁纹理、箭头场、颜色场、参数调节和原文定位，帮助建立 `polarity p`、`vorticity m`、`helicity γ` 与拓扑荷之间的直观联系。
+面向磁性拓扑纹理学习与科研交流的单页交互可视化工具。
 
-> 在线体验：[https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/](https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/)
->
-> GitHub 仓库：[https://github.com/Xin-Jiaqi/topological-magnetic-texture-atlas](https://github.com/Xin-Jiaqi/topological-magnetic-texture-atlas)
+[![Pages](https://img.shields.io/badge/GitHub%20Pages-live-2ea44f)](https://xin-jiaqi.github.io/skyrmion-texture-atlas/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Pure HTML](https://img.shields.io/badge/Pure-HTML%2FCSS%2FJS-e34f26)
+![Presets](https://img.shields.io/badge/presets-13-4c6ef5)
+
+**[🌐 在线体验](https://xin-jiaqi.github.io/skyrmion-texture-atlas/) · [📖 中文综述](https://zhuanlan.zhihu.com/p/2069027257536999823) · [📘 使用指南](docs/guide.md)**
+
+> Desktop optimized；手机端已提供单栏布局，复杂纹理仍推荐桌面访问。
+
+![Topological Magnetic Texture Atlas](assets/preview.png)
+
+| Néel skyrmion | Antiskyrmion | AFM skyrmion |
+|---|---|---|
+| ![](assets/presets/neel.png) | ![](assets/presets/antiskyrmion.png) | ![](assets/presets/afm.png) |
 
 ## 功能
 
@@ -92,19 +103,22 @@ AFM / FiM 图中的上下间距用于视觉拆解，不代表真实晶格层间�
 
 部署完成后的项目站点通常为：
 
-`https://xin-jiaqi.github.io/topological-magnetic-texture-atlas/`
+`https://xin-jiaqi.github.io/skyrmion-texture-atlas/`
 
 ## 仓库结构
 
     index.html
     README.md
-    skyrmion_help_v50.md
-    docs/scientific_interactive_web_iteration_method.md
-    docs/audit_v50_static.json
-    知乎公众号_磁性Skyrmion交互纹理图鉴_推广长文.md
-    Beyond_skyrmions_Physics_Reports_895_2021.pdf
+    LICENSE
+    CITATION.cff
+    assets/
+    docs/guide.md
+    docs/iteration-method.md
+    docs/articles/zhihu-wechat.md
+    docs/development/audit.json
+    references/Beyond_skyrmions_Physics_Reports_895_2021.pdf
 
-`index.html` 是网页入口。`skyrmion_help_v50.md` 保存完整知识笔记；`docs/scientific_interactive_web_iteration_method.md` 记录科学交互网页的迭代与审计方法；`知乎公众号_磁性Skyrmion交互纹理图鉴_推广长文.md` 是项目的中文公开介绍稿。
+`index.html` 是网页入口；`docs/guide.md` 保存完整知识笔记；`docs/iteration-method.md` 记录科学交互网页的迭代与审计方法；`docs/articles/zhihu-wechat.md` 是中文公开介绍稿。
 
 ## 文献依据
 
@@ -136,6 +150,10 @@ DOI: https://doi.org/10.1016/j.physrep.2020.10.001
 
 当前纹理由解析/教学构造生成，没有执行材料特定的微磁能量最小化，也不替代 MuMax3、OOMMF 等微磁模拟工具。页面标出的拓扑荷来自目标构型定义；后续版本计划加入离散拓扑积分和网格收敛检查。
 
-## 许可
+## License 与引用
 
-原论文 PDF 采用 CC BY 4.0。项目代码与原创界面的独立开源许可仍待维护者确定；公开复用前请保留仓库与论文引用。
+- 网页代码： [MIT License](LICENSE)
+- 原始论文 PDF：遵循出版物的 CC BY 4.0
+- 原创文章与图片：版权归作者；复用请先署名并联系作者
+
+科研、课程或公开材料使用本项目时，可通过 GitHub 的 **Cite this repository** 导出引文；元数据见 [`CITATION.cff`](CITATION.cff)。
