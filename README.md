@@ -117,11 +117,13 @@ AFM / FiM 图中的上下间距用于视觉拆解，不代表真实晶格层间�
     docs/guide.md
     docs/iteration-method.md
     docs/articles/zhihu-wechat.md
+    docs/articles/zhihu-wechat-images/00_知乎公众号长文_带图完整版.md
+    docs/articles/zhihu-wechat-images/images/
     docs/development/audit.json
     references/Beyond_skyrmions_Physics_Reports_895_2021.pdf
     tests/atlas.spec.js
 
-`index.html` 是网页入口；`docs/guide.md` 保存完整知识笔记；`docs/iteration-method.md` 记录科学交互网页的迭代与审计方法；`docs/articles/zhihu-wechat.md` 是中文公开介绍稿；`tests/atlas.spec.js` 是 Playwright 浏览器冒烟测试（13 个预设渲染、console 错误、桌面 / 390px 移动端布局溢出检查）。
+`index.html` 是网页入口；`docs/guide.md` 保存完整知识笔记；`docs/iteration-method.md` 记录科学交互网页的迭代与审计方法；`docs/articles/zhihu-wechat.md` 是中文公开介绍稿，`docs/articles/zhihu-wechat-images/` 是带图完整版文章稿（含四宫格与修正版对比图）；`tests/atlas.spec.js` 是 Playwright 浏览器冒烟测试（13 个预设渲染、console 错误、桌面 / 390px 移动端布局溢出检查）。
 
 ## 文献依据
 

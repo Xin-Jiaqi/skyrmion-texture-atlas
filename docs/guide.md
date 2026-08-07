@@ -87,7 +87,7 @@
 
 理解这些对象时，最有效的顺序是：
 
-$$
+```math
 \text{磁化场的几何绕转}
 \longrightarrow
 \text{拓扑荷与分类参数}
@@ -95,7 +95,7 @@ $$
 \text{多个子纹理如何组合}
 \longrightarrow
 \text{二维纹理如何进入三维}
-$$
+```
 
 本文对传统 skyrmion 的介绍集中在 Sec. 2，覆盖拓扑、几何、稳定机制和涌现电动力学。Sec. 3 将这些概念作为参照，系统讨论替代磁准粒子。对于初学者，Fig. 2、Fig. 3、Eqs. (1)–(7) 和 Fig. 8 构成最重要的入门路径。
 
@@ -139,14 +139,14 @@ Fig. 3(a–c) 给出最直观的构造：三维 hedgehog 的球面被展开成�
 
 二维归一化磁化场写为
 
-$$
+```math
 \mathbf m(\mathbf r)=
 \begin{pmatrix}
 \sin\theta\cos\Phi\\
 \sin\theta\sin\Phi\\
 \cos\theta
 \end{pmatrix},
-$$
+```
 
 其中：
 
@@ -156,21 +156,21 @@ $$
 
 对于理想轴对称 skyrmion，通常有
 
-$$
+```math
 \theta=\theta(r),\qquad \Phi=\Phi(\phi).
-$$
+```
 
 ### 2. 拓扑荷密度与总拓扑荷
 
 论文 Eqs. (1)–(2)：
 
-$$
+```math
 N_{\mathrm{Sk}}
 =
 \int n_{\mathrm{Sk}}(\mathbf r)\,d^2r,
-$$
+```
 
-$$
+```math
 n_{\mathrm{Sk}}(\mathbf r)
 =
 \frac{1}{4\pi}
@@ -180,7 +180,7 @@ n_{\mathrm{Sk}}(\mathbf r)
 \times
 \frac{\partial\mathbf m}{\partial y}
 \right].
-$$
+```
 
 几何上，$N_{\mathrm{Sk}}$ 记录磁化方向覆盖自旋单位球面的次数和方向。局域密度 $n_{\mathrm{Sk}}(\mathbf r)$ 则告诉我们拓扑绕转主要集中在哪些空间区域。
 
@@ -188,7 +188,7 @@ $$
 
 论文 Eq. (4)：
 
-$$
+```math
 p
 =
 -\frac12
@@ -197,7 +197,7 @@ p
 \right]
 =
 \frac{\cos\theta(0)-\cos\theta(\infty)}{2}.
-$$
+```
 
 对于完整 skyrmion：
 
@@ -212,17 +212,17 @@ $$
 
 论文 Eq. (5)：
 
-$$
+```math
 m
 =
 \frac{\Phi(2\pi)-\Phi(0)}{2\pi},
-$$
+```
 
 其中
 
-$$
+```math
 m=0,\pm1,\pm2,\ldots
-$$
+```
 
 含义：沿实空间方位角 $\phi$ 绕纹理中心一周，面内磁化方位角 $\Phi$ 改变了多少个 $2\pi$。
 
@@ -238,9 +238,9 @@ $$
 
 论文 Eq. (7)：
 
-$$
+```math
 \Phi(\phi)=m\phi+\gamma.
-$$
+```
 
 对于 $m=+1$ 的圆对称 skyrmion，$\gamma$ 表示面内磁化相对实空间径向的统一偏移：
 
@@ -260,9 +260,9 @@ $$
 
 对于完整、轴对称的二维 skyrmion，论文 Eq. (6) 给出
 
-$$
+```math
 \boxed{N_{\mathrm{Sk}}=mp}.
-$$
+```
 
 由此得到：
 
@@ -274,9 +274,9 @@ $$
 
 对于理想 meron，可以把半球覆盖写成
 
-$$
+```math
 N_{\mathrm{meron}}\approx\frac{mp}{2}=\pm\frac12.
-$$
+```
 
 这条式子是对完整 skyrmion 公式的半球覆盖推广。论文正文主要通过 Fig. 4(c) 和 meron–antimeron lattice 说明其半整数拓扑荷。
 
@@ -296,16 +296,16 @@ $$
 
 ### 1. 基本二维拓扑单元
 
-$$
+```math
 \boxed{\text{skyrmion 与 meron}}
-$$
+```
 
 - **skyrmion**：完整自旋球面覆盖，典型 $N_{\mathrm{Sk}}=\pm1$。
 - **meron**：半球覆盖，典型 $N_{\mathrm{Sk}}=\pm1/2$。
 
 ### 2. 改变单个 skyrmion 的内部绕转
 
-$$
+```math
 \boxed{
 \text{Néel}
 \quad
@@ -317,7 +317,7 @@ $$
 \quad
 \text{higher-order}
 }
-$$
+```
 
 - Néel、Bloch、intermediate：主要改变 helicity；
 - antiskyrmion：改变 vorticity，并引入明显各向异性；
@@ -325,7 +325,7 @@ $$
 
 ### 3. 组合多个基本纹理
 
-$$
+```math
 \boxed{
 \text{bimeron}
 \quad
@@ -333,7 +333,7 @@ $$
 \quad
 \text{skyrmionium}
 }
-$$
+```
 
 - bimeron：meron 与 antimeron 的组合；
 - biskyrmion：两个部分重叠、同号拓扑荷的 skyrmion；
@@ -341,20 +341,20 @@ $$
 
 ### 4. 改变磁性背景
 
-$$
+```math
 \boxed{
 \text{antiferromagnetic skyrmion}
 \quad
 \text{ferrimagnetic skyrmion}
 }
-$$
+```
 
 - 反铁磁 skyrmion：两个等强度、方向相反的子晶格 skyrmion；
 - 亚铁磁 skyrmion：两个方向相反但磁矩大小不同的子晶格 skyrmion。
 
 ### 5. 向三维扩展
 
-$$
+```math
 \boxed{
 \text{skyrmion tube}
 \quad
@@ -362,7 +362,7 @@ $$
 \quad
 \text{hopfion}
 }
-$$
+```
 
 - tube：二维 skyrmion 沿第三维延伸；
 - bobber：tube 在 Bloch point 处终止；
@@ -428,13 +428,13 @@ Fig. 1 对应这棵关系树的更一般版本：基本激发、变体和二维/
 
 Fig. 3(a) 的具体例子：
 
-$$
+```math
 p=+1,\qquad m=+1,\qquad \gamma=0,
-$$
+```
 
-$$
+```math
 N_{\mathrm{Sk}}=+1.
-$$
+```
 
 一般情况：
 
@@ -457,13 +457,13 @@ $$
 
 #### 参数
 
-$$
+```math
 m=+1,\qquad \gamma=\pm\frac{\pi}{2},
-$$
+```
 
-$$
+```math
 N_{\mathrm{Sk}}=p.
-$$
+```
 
 两种 $\gamma$ 对应相反的切向旋转方向。
 
@@ -484,13 +484,13 @@ $$
 
 #### Fig. 2(b) 的参数
 
-$$
+```math
 p=+1,\qquad m=+1,\qquad \gamma=\frac{\pi}{4},
-$$
+```
 
-$$
+```math
 N_{\mathrm{Sk}}=+1.
-$$
+```
 
 #### 最重要位置
 
@@ -502,13 +502,13 @@ $$
 
 Néel、Bloch 和 intermediate skyrmion 可以具有相同的 $p$、$m$ 和 $N_{\mathrm{Sk}}$。三者主要通过 $\gamma$ 区分：
 
-$$
+```math
 \text{Néel}
 \xleftrightarrow{\ \gamma\ }
 \text{intermediate}
 \xleftrightarrow{\ \gamma\ }
 \text{Bloch}.
-$$
+```
 
 因此，helicity 改变的是面内纹理的几何朝向。拓扑荷保持不变。
 
@@ -522,15 +522,15 @@ $$
 
 普通 skyrmion 常取
 
-$$
+```math
 m=+1,
-$$
+```
 
 antiskyrmion 则具有
 
-$$
+```math
 m=-1.
-$$
+```
 
 在实空间绕中心一周时，面内磁化沿相反方向旋转。
 
@@ -543,9 +543,9 @@ $$
 
 Fig. 2(a) 给出
 
-$$
+```math
 m=-1,\qquad N_{\mathrm{Sk}}=-1.
-$$
+```
 
 由 $N_{\mathrm{Sk}}=mp$ 可知该图对应 $p=+1$。整体反转中心和背景后，$p$ 与 $N_{\mathrm{Sk}}$ 同时变号。
 
@@ -564,15 +564,15 @@ $$
 
 #### 定义
 
-$$
+```math
 |m|>1,
-$$
+```
 
 因此
 
-$$
+```math
 |N_{\mathrm{Sk}}|=|mp|>1.
-$$
+```
 
 #### 外观
 
@@ -595,21 +595,21 @@ $$
 
 完整 skyrmion 的径向变化可以写成
 
-$$
+```math
 +z\longrightarrow \text{面内}\longrightarrow -z,
-$$
+```
 
 meron 只完成
 
-$$
+```math
 \pm z\longrightarrow \text{面内}.
-$$
+```
 
 因此 meron 覆盖半个自旋球面，典型拓扑荷为
 
-$$
+```math
 N_{\mathrm{meron}}=\pm\frac12.
-$$
+```
 
 #### 外观
 
@@ -622,10 +622,10 @@ $$
 
 主要差别是 vorticity：
 
-$$
+```math
 m_{\mathrm{meron}}=+1,\qquad
 m_{\mathrm{antimeron}}=-1.
-$$
+```
 
 Fig. 4(c) 的 meron–antimeron lattice 中：
 
@@ -634,20 +634,20 @@ Fig. 4(c) 的 meron–antimeron lattice 中：
 
 两者拓扑荷同号，意味着核心 polarity 也相反。该例中可理解为
 
-$$
+```math
 \begin{aligned}
 \text{meron}:&\quad m=+1,\ p=+1,\\
 \text{antimeron}:&\quad m=-1,\ p=-1.
 \end{aligned}
-$$
+```
 
 ### 3. Bimeron
 
 #### 组成关系
 
-$$
+```math
 \boxed{\text{bimeron}=\text{meron}+\text{antimeron}}.
-$$
+```
 
 两个子粒子具有：
 
@@ -657,9 +657,9 @@ $$
 
 因此
 
-$$
+```math
 \frac12+\frac12=1
-$$
+```
 
 或整体反转后得到 $-1$。
 
@@ -699,9 +699,9 @@ bimeron 没有单一的全局 $p,m,\gamma$。论文使用：
 
 #### 组成关系
 
-$$
+```math
 \boxed{\text{biskyrmion}=\text{两个部分重叠的同号 skyrmion}}.
-$$
+```
 
 两个子 skyrmion 通常具有：
 
@@ -712,10 +712,10 @@ $$
 
 对于两个 Bloch skyrmion，可以取
 
-$$
+```math
 \gamma_1=+\frac{\pi}{2},\qquad
 \gamma_2=-\frac{\pi}{2}.
-$$
+```
 
 #### 外观
 
@@ -728,9 +728,9 @@ $$
 
 若两个子 skyrmion 均为 $+1$，则
 
-$$
+```math
 N_{\mathrm{biskyrmion}}=+2.
-$$
+```
 
 Fig. 2(e) 和 Fig. 8(b) 均采用 $N_{\mathrm{Sk}}=2$。
 
@@ -747,9 +747,9 @@ Fig. 2(e) 和 Fig. 8(b) 均采用 $N_{\mathrm{Sk}}=2$。
 
 skyrmionium 由内外两个拓扑荷相反的同心子结构组成：
 
-$$
+```math
 N_{\mathrm{inner}}+N_{\mathrm{outer}}=(+1)+(-1)=0.
-$$
+```
 
 论文将其描述为相同 vorticity、相反 polarity 的两个 skyrmion 结构。
 
@@ -759,9 +759,9 @@ $$
 - 中间存在一圈反向磁化；
 - 径向变化为
 
-$$
+```math
 +z\rightarrow -z\rightarrow +z
-$$
+```
 
 或整体反向；
 - 形状像靶心或同心圆环；
@@ -769,18 +769,18 @@ $$
 
 #### 拓扑荷
 
-$$
+```math
 N_{\mathrm{Sk}}=0.
-$$
+```
 
 局域拓扑荷密度仍然有限，中央和外环分别具有相反符号。Fig. 8(c) 对这一点展示得最清楚。
 
 整个 skyrmionium 没有唯一的全局 polarity。合适的描述是
 
-$$
+```math
 N_{\mathrm{inner}}=\pm1,\qquad
 N_{\mathrm{outer}}=\mp1.
-$$
+```
 
 #### 最重要位置
 
@@ -806,15 +806,15 @@ $$
 
 两个子晶格上的 skyrmion 空间重合，局域磁矩近似反向：
 
-$$
+```math
 \mathbf m_B(\mathbf r)\approx-\mathbf m_A(\mathbf r).
-$$
+```
 
 子晶格拓扑荷为
 
-$$
+```math
 N_A=+1,\qquad N_B=-1.
-$$
+```
 
 #### 外观
 
@@ -827,21 +827,21 @@ $$
 
 从总磁化 $\mathbf M$ 看：
 
-$$
+```math
 N_{\mathbf M}=0.
-$$
+```
 
 从 Néel order parameter
 
-$$
+```math
 \mathbf n=\frac{\mathbf m_A-\mathbf m_B}{2}
-$$
+```
 
 看：
 
-$$
+```math
 N_{\mathbf n}=\pm1.
-$$
+```
 
 因此，磁化拓扑荷的补偿与反铁磁序参量中的非平凡拓扑可以同时存在。
 
@@ -849,15 +849,15 @@ $$
 
 若 A 子晶格为
 
-$$
+```math
 p_A=+1,\qquad m_A=+1,\qquad \gamma_A=\gamma,
-$$
+```
 
 则反向的 B 子晶格可写成
 
-$$
+```math
 p_B=-1,\qquad m_B=+1,\qquad \gamma_B=\gamma+\pi.
-$$
+```
 
 #### 最重要位置
 
@@ -872,15 +872,15 @@ $$
 
 两个子晶格的磁矩方向相反，大小不同：
 
-$$
+```math
 |\mathbf M_A|\neq|\mathbf M_B|.
-$$
+```
 
 因此
 
-$$
+```math
 \mathbf M_A+\mathbf M_B\neq0.
-$$
+```
 
 #### 外观
 
@@ -890,9 +890,9 @@ $$
 
 两个归一化子晶格纹理可以具有
 
-$$
+```math
 N_A=+1,\qquad N_B=-1.
-$$
+```
 
 磁化补偿和角动量补偿依赖具体温度。论文强调在角动量补偿温度附近，skyrmion Hall effect 可被显著抑制。
 
@@ -917,11 +917,11 @@ $$
 
 #### 构造关系
 
-$$
+```math
 \text{二维 skyrmion}
 \xrightarrow{\text{沿 }z\text{ 延伸}}
 \text{skyrmion tube}.
-$$
+```
 
 #### 外观
 
@@ -931,9 +931,9 @@ $$
 
 每个横截面仍可定义
 
-$$
+```math
 p,\quad m,\quad \gamma,\quad N_{\mathrm{Sk}}=mp.
-$$
+```
 
 #### 最重要位置
 
@@ -946,9 +946,9 @@ $$
 
 #### 构造关系
 
-$$
+```math
 \boxed{\text{chiral bobber}=\text{在 Bloch point 处终止的 skyrmion tube}}.
-$$
+```
 
 #### 外观
 
@@ -961,15 +961,15 @@ $$
 
 沿 tube 方向，横截面拓扑荷从
 
-$$
+```math
 N_{\mathrm{Sk}}=\pm1
-$$
+```
 
 变为均匀背景的
 
-$$
+```math
 N_{\mathrm{Sk}}=0.
-$$
+```
 
 这要求磁化场经过三维奇点 Bloch point。
 
@@ -989,7 +989,7 @@ $$
 
 #### 构造关系
 
-$$
+```math
 \text{skyrmion tube}
 \longrightarrow
 \text{弯曲}
@@ -997,7 +997,7 @@ $$
 \text{首尾闭合}
 \longrightarrow
 \text{hopfion}.
-$$
+```
 
 #### 外观
 
@@ -1010,19 +1010,19 @@ $$
 
 Hopfion 使用 Hopf invariant：
 
-$$
+```math
 Q_H=
 -\frac{1}{(4\pi)^2}
 \int
 \mathbf B_{\mathrm{em}}(\mathbf r)\cdot
 \mathbf A(\mathbf r)\,d^3r,
-$$
+```
 
 其中
 
-$$
+```math
 \nabla\times\mathbf A=\mathbf B_{\mathrm{em}}.
-$$
+```
 
 最简单的 hopfion 中：
 
@@ -1031,9 +1031,9 @@ $$
 
 于是
 
-$$
+```math
 Q_H=\pm1.
-$$
+```
 
 #### 最重要位置
 
@@ -1220,7 +1220,7 @@ $$
 
 最适合长期保留的一条总主线是：
 
-$$
+```math
 \boxed{
 \text{完整或半个球面覆盖}
 \rightarrow
@@ -1232,7 +1232,7 @@ $$
 \rightarrow
 \text{扩展到三维}
 }
-$$
+```
 
 ---
 
@@ -1325,24 +1325,24 @@ $$
 
 二维归一化磁化场可写为
 
-$$
+```math
 \mathbf m(\mathbf r)=
 \begin{pmatrix}
 \sin\theta\cos\Phi\\
 \sin\theta\sin\Phi\\
 \cos\theta
 \end{pmatrix},
-$$
+```
 
 其中 $\theta$ 决定面外分量，$\Phi$ 是磁矩在平面内的方位角，实空间位置写作 $\mathbf r=r(\cos\phi,\sin\phi)$。轴对称纹理通常满足 $\theta=\theta(r)$、$\Phi=\Phi(\phi)$。
 
 #### 拓扑荷密度与总拓扑荷
 
-$$
+```math
 N_{\mathrm{Sk}}=\int n_{\mathrm{Sk}}(\mathbf r)\,d^2r,
-$$
+```
 
-$$
+```math
 n_{\mathrm{Sk}}(\mathbf r)=
 \frac{1}{4\pi}
 \mathbf m(\mathbf r)\cdot
@@ -1351,44 +1351,44 @@ n_{\mathrm{Sk}}(\mathbf r)=
 \times
 \frac{\partial\mathbf m}{\partial y}
 \right].
-$$
+```
 
 $N_{\mathrm{Sk}}$ 表示二维磁化场覆盖自旋单位球面的次数和方向。
 
 #### Polarity
 
-$$
+```math
 p=
 -\frac12
 \left[
 \cos\theta(\infty)-\cos\theta(0)
 \right].
-$$
+```
 
 中心朝 $+z$、背景朝 $-z$ 时 $p=+1$；整体反转时 $p=-1$。
 
 #### Vorticity
 
-$$
+```math
 m=
 \frac{\Phi(2\pi)-\Phi(0)}{2\pi}.
-$$
+```
 
 $m$ 描述沿实空间绕中心一周时，面内磁化旋转的圈数和方向。
 
 #### Helicity
 
-$$
+```math
 \Phi(\phi)=m\phi+\gamma.
-$$
+```
 
 对 $m=+1$ 的圆对称 skyrmion，$\gamma=0,\pi$ 对应 Néel 型，$\gamma=\pm\pi/2$ 对应 Bloch 型，其他角度对应 intermediate-helicity skyrmion。
 
 #### 三个参数与拓扑荷
 
-$$
+```math
 N_{\mathrm{Sk}}=mp.
-$$
+```
 
 改变 $p$ 或 $m$ 会改变拓扑荷；改变 $\gamma$ 不改变拓扑荷。理想 meron 可近似写作 $N_{\mathrm{meron}}\approx mp/2$。
 

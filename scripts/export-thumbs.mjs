@@ -3,8 +3,9 @@ import { chromium } from '@playwright/test';
 
 const key = process.argv[2];
 const out = process.argv[3];
+const clean = process.argv[4] === 'clean';
 if (!key || !out) {
-  console.error('usage: node scripts/export-thumbs.mjs <preset> <output.png>');
+  console.error('usage: node scripts/export-thumbs.mjs <preset> <output.png> [clean]');
   process.exit(1);
 }
 
@@ -13,7 +14,7 @@ await new Promise((r) => setTimeout(r, 1500));
 try {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
-  await page.goto('http://localhost:8080/');
+  await page.goto(`http://localhost:8080/?preset=${key}${clean ? '&clean=1' : ''}`);
   await page.selectOption('#preset', key);
   await page.waitForTimeout(300);
   await page.locator('#mainCanvas').screenshot({ path: out });

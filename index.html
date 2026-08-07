@@ -367,6 +367,7 @@ a{text-decoration:none;color:inherit}
 const $=id=>document.getElementById(id);
 const C={main:$('mainCanvas'),arrow:$('arrowCanvas'),color:$('colorCanvas'),comp:$('compositeCanvas')};
 const DEFAULTS={c:.11,beta:.995,q:3,rings:10,L:.20};
+const CLEAN=new URLSearchParams(location.search).get('clean')==='1';
 const DOI='https://doi.org/10.1016/j.physrep.2020.10.001';
 const LOCAL_PDF='./references/Beyond_skyrmions_Physics_Reports_895_2021.pdf';
 const PRESET_EXPORT_NAMES={neel_out:'Neel_skyrmion_outward',neel_in:'Neel_skyrmion_inward',bloch_cw:'Bloch_skyrmion_clockwise',bloch_ccw:'Bloch_skyrmion_counterclockwise',intermediate:'Intermediate_helicity_skyrmion',higher2:'Higher_order_skyrmion_m_equals_2',anti:'Antiskyrmion',skyrmionium:'Skyrmionium',biskyrmion:'Biskyrmion',meron:'Meron',bimeron:'Bimeron',afm_sk:'Antiferromagnetic_skyrmion',ferri_sk:'Ferrimagnetic_skyrmion'};
@@ -528,13 +529,15 @@ function canvasTag(ctx,x,y,label,color='#2563eb',sub=''){
  ctx.save();ctx.font='700 12px "Avenir Next","PingFang SC",sans-serif';const w=Math.max(54,ctx.measureText(label).width+22);ctx.fillStyle='rgba(255,255,255,.92)';ctx.strokeStyle='rgba(201,210,225,.95)';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(x,y,w,27,13);ctx.fill();ctx.stroke();ctx.fillStyle=color;ctx.fillText(label,x+11,y+18);if(sub){ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillStyle='#687080';ctx.fillText(sub,x+w+8,y+18)}ctx.restore();
 }
 function renderSublatticeMain(ctx,W,H,s,b,isAF){
- const zA=isAF?.23:.16,zB=isAF?-.23:-.16,eta=isAF?1:.70;
- const discAlpha=isAF?.96:.90,arrowAlpha=isAF?.98:.92;
- drawDiscField(ctx,b,s,'B',zB,.89,discAlpha,false,'A');drawSublatticeArrows(ctx,b,s,'B',zB,eta,arrowAlpha,false);
- drawDiscField(ctx,b,s,'A',zA,.89,discAlpha,false);drawSublatticeArrows(ctx,b,s,'A',zA,1,.98,false);
- canvasTag(ctx,16,16,'A','#2563eb',isAF?'|mA| = 1':'主子晶格 · |mA| = 1');
- canvasTag(ctx,16,50,'B','#dc2626',isAF?'|mB| = 1 · 与 A 逐点反平行':'|mB| ≈ 0.70|mA| · 与 A 逐点反平行');
- ctx.save();ctx.fillStyle='rgba(30,41,59,.78)';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText(isAF?'教学分解视图：上下两层拉开显示，A/B 等幅反平行':'教学分解视图：A/B 反平行但幅值不等，保留非零净磁化',18,H-18);ctx.restore();
+  const zA=isAF?.23:.16,zB=isAF?-.23:-.16,eta=isAF?1:.70;
+  const discAlpha=isAF?.96:.90,arrowAlpha=isAF?.98:.92;
+  drawDiscField(ctx,b,s,'B',zB,.89,discAlpha,false,'A');drawSublatticeArrows(ctx,b,s,'B',zB,eta,arrowAlpha,false);
+  drawDiscField(ctx,b,s,'A',zA,.89,discAlpha,false);drawSublatticeArrows(ctx,b,s,'A',zA,1,.98,false);
+  if(!CLEAN){
+    canvasTag(ctx,16,16,'A','#2563eb',isAF?'|mA| = 1':'主子晶格 · |mA| = 1');
+    canvasTag(ctx,16,50,'B','#dc2626',isAF?'|mB| = 1 · 与 A 逐点反平行':'|mB| ≈ 0.70|mA| · 与 A 逐点反平行');
+    ctx.save();ctx.fillStyle='rgba(30,41,59,.78)';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText(isAF?'教学分解视图：上下两层拉开显示，A/B 等幅反平行':'教学分解视图：A/B 反平行但幅值不等，保留非零净磁化',18,H-18);ctx.restore();
+  }
 }
 function drawNetMagBadge(ctx,W,H,eta=.70){
  const residual=Math.max(0,1-eta),x=W-228,y=18,w=208,h=58;
@@ -544,21 +547,23 @@ function drawNetMagBadge(ctx,W,H,eta=.70){
  const x0=x+w-34,y0=y+40,L=22;ctx.strokeStyle='#16a34a';ctx.fillStyle='#16a34a';ctx.lineWidth=2.2;ctx.beginPath();ctx.moveTo(x0-L,y0);ctx.lineTo(x0,y0);ctx.stroke();ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0-7,y0-4);ctx.lineTo(x0-7,y0+4);ctx.closePath();ctx.fill();ctx.restore();
 }
 function renderFerriMain(ctx,W,H,s,b){
- const zA=.20,zB=-.20,eta=.70;
- drawDiscField(ctx,b,s,'B',zB,.89,.96,false,'A');
- drawSublatticeArrows(ctx,b,s,'B',zB,eta,.98,false);
- drawDiscField(ctx,b,s,'A',zA,.89,.96,false);
- drawSublatticeArrows(ctx,b,s,'A',zA,1,.98,false);
- canvasTag(ctx,16,16,'A','#2563eb','主子晶格 · |mA| = 1.00');
- canvasTag(ctx,16,50,'B','#dc2626','次子晶格 · |mB| ≈ 0.70 · 逐点反平行');
- drawNetMagBadge(ctx,W,H,eta);
- ctx.save();ctx.fillStyle='rgba(30,41,59,.78)';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText('教学分解：统一色标；A/B 反平行且不等长，残余 Mnet 沿主导子晶格方向',18,H-18);ctx.restore();
+  const zA=.20,zB=-.20,eta=.70;
+  drawDiscField(ctx,b,s,'B',zB,.89,.96,false,'A');
+  drawSublatticeArrows(ctx,b,s,'B',zB,eta,.98,false);
+  drawDiscField(ctx,b,s,'A',zA,.89,.96,false);
+  drawSublatticeArrows(ctx,b,s,'A',zA,1,.98,false);
+  if(!CLEAN){
+    canvasTag(ctx,16,16,'A','#2563eb','主子晶格 · |mA| = 1.00');
+    canvasTag(ctx,16,50,'B','#dc2626','次子晶格 · |mB| ≈ 0.70 · 逐点反平行');
+    drawNetMagBadge(ctx,W,H,eta);
+    ctx.save();ctx.fillStyle='rgba(30,41,59,.78)';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText('教学分解：统一色标；A/B 反平行且不等长，残余 Mnet 沿主导子晶格方向',18,H-18);ctx.restore();
+  }
 }
 function renderSublatticeSplit(ctx,W,H,s,isAF,mode){
  const bA=basis(W,H,.60,-W*.23,7),bB=basis(W,H,.60,W*.23,7),eta=isAF?1:.70;
- if(mode==='color'){drawDiscField(ctx,bA,s,'A',0,.88,.96,true,'A');drawDiscField(ctx,bB,s,'B',0,.88,.96,true,'A')}
- else{drawSublatticeArrows(ctx,bA,s,'A',0,1,.98,true);drawSublatticeArrows(ctx,bB,s,'B',0,eta,.98,true)}
- canvasTag(ctx,10,10,'A','#2563eb');canvasTag(ctx,W/2+6,10,'B','#dc2626',isAF?'等幅反向':'反向 · 0.70×');
+  if(mode==='color'){drawDiscField(ctx,bA,s,'A',0,.88,.96,true,'A');drawDiscField(ctx,bB,s,'B',0,.88,.96,true,'A')}
+  else{drawSublatticeArrows(ctx,bA,s,'A',0,1,.98,true);drawSublatticeArrows(ctx,bB,s,'B',0,eta,.98,true)}
+  if(!CLEAN){canvasTag(ctx,10,10,'A','#2563eb');canvasTag(ctx,W/2+6,10,'B','#dc2626',isAF?'等幅反向':'反向 · 0.70×')}
 }
 function items(s,b){return samplePoints(s).map(p=>{const P={x:p.r*Math.cos(p.a),y:p.r*Math.sin(p.a),z:.0,r:p.r},v=field(P.x,P.y,s);return{P,v,c:arrowColor(v),z:proj(P.x,P.y,.035,b)[2]}}).sort((a,b)=>a.z-b.z)}
 function compositeGuides(){
@@ -636,8 +641,8 @@ function renderInfo(){
  else {$('labelP').textContent='极性 p';$('labelM').textContent='涡度 m';$('labelG').textContent='螺旋度 γ';$('labelN').textContent='拓扑荷 N';$('infoP').textContent=s.p>0?'+1':'−1';$('infoM').textContent=(s.m>0?'+':'')+s.m;$('infoG').textContent=Math.round(s.g*180/Math.PI)+'°';$('infoN').textContent=nText;}
  const root=$('infoScroll');root.innerHTML='';for(const [title,body] of d.sections){const sec=document.createElement('section');sec.className='section';const h=document.createElement('h3');h.textContent=title;sec.appendChild(h);if(Array.isArray(body)){const ul=document.createElement('ul');for(const t of body){const li=document.createElement('li');li.textContent=t;ul.appendChild(li)}sec.appendChild(ul)}else{const wrap=document.createElement('div');wrap.innerHTML=body;sec.appendChild(wrap)}root.appendChild(sec)}
  const rb=$('reprBadge'); rb.hidden=true;
- if(kind==='afm'){ $('mainSub').textContent='双子晶格分解示意：A/B 等幅、逐点反平行；上下间距仅用于教学拆解'; $('arrowSub').textContent='A/B 实际磁矩分别显示：箭头等长且逐点反平行'; $('colorSub').textContent='统一 Néel-order 方向配色：两幅使用同一色标，便于直接比较 A/B'; $('legendWhite').textContent='白：Néel order +z'; $('legendBlack').textContent='黑：Néel order −z'; $('legendColor').textContent='彩色：Néel order 面内方位'; rb.hidden=false; rb.textContent='教学表示：底色统一编码 Néel order；箭头显示 A/B 实际磁矩'; }
- else if(kind==='ferri'){ $('mainSub').textContent='双子晶格分解：A/B 逐点反平行且不等幅；绿色 Mnet 标记直接显示残余净磁化'; $('arrowSub').textContent='A/B 实际磁矩分别显示：逐点反平行，B 箭头长度为 A 的 70%（教学比例）'; $('colorSub').textContent='统一方向色标：颜色只编码方向，不编码磁矩幅值；幅值差异由箭头长度表达'; $('legendWhite').textContent='白：纹理参考方向 +z'; $('legendBlack').textContent='黑：纹理参考方向 −z'; $('legendColor').textContent='彩色：纹理参考的面内方位'; rb.hidden=false; rb.textContent='教学表示：统一色标；A/B 不等长反平行；绿色 Mnet 表示残余净磁化'; }
+ if(kind==='afm'){ $('mainSub').textContent='双子晶格分解示意：A/B 等幅、逐点反平行；上下间距仅用于教学拆解'; $('arrowSub').textContent='A/B 实际磁矩分别显示：箭头等长且逐点反平行'; $('colorSub').textContent='统一 Néel-order 方向配色：两幅使用同一色标，便于直接比较 A/B'; $('legendWhite').textContent='白：Néel order +z'; $('legendBlack').textContent='黑：Néel order −z'; $('legendColor').textContent='彩色：Néel order 面内方位'; rb.hidden=CLEAN; rb.textContent='教学表示：底色统一编码 Néel order；箭头显示 A/B 实际磁矩'; }
+ else if(kind==='ferri'){ $('mainSub').textContent='双子晶格分解：A/B 逐点反平行且不等幅；绿色 Mnet 标记直接显示残余净磁化'; $('arrowSub').textContent='A/B 实际磁矩分别显示：逐点反平行，B 箭头长度为 A 的 70%（教学比例）'; $('colorSub').textContent='统一方向色标：颜色只编码方向，不编码磁矩幅值；幅值差异由箭头长度表达'; $('legendWhite').textContent='白：纹理参考方向 +z'; $('legendBlack').textContent='黑：纹理参考方向 −z'; $('legendColor').textContent='彩色：纹理参考的面内方位'; rb.hidden=CLEAN; rb.textContent='教学表示：统一色标；A/B 不等长反平行；绿色 Mnet 表示残余净磁化'; }
  else { $('mainSub').textContent='论文风格主视图：底色与箭头同步显示'; $('arrowSub').textContent='只显示局域磁化箭头，用于识别绕转方式'; $('colorSub').textContent='只显示颜色编码，用于对应面外分量与面内方位'; $('legendWhite').textContent='白：+z'; $('legendBlack').textContent='黑：−z'; $('legendColor').textContent='彩色：面内方向'; }
  renderComposite();
 }
