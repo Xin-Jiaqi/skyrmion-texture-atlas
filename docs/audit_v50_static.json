@@ -1,0 +1,44 @@
+{
+  "preset_count": 13,
+  "source_focus_count": 13,
+  "export_map_count": 13,
+  "export_map_complete": true,
+  "full_export_names": {
+    "neel_out": "Neel_skyrmion_outward",
+    "neel_in": "Neel_skyrmion_inward",
+    "bloch_cw": "Bloch_skyrmion_clockwise",
+    "bloch_ccw": "Bloch_skyrmion_counterclockwise",
+    "intermediate": "Intermediate_helicity_skyrmion",
+    "higher2": "Higher_order_skyrmion_m_equals_2",
+    "anti": "Antiskyrmion",
+    "skyrmionium": "Skyrmionium",
+    "biskyrmion": "Biskyrmion",
+    "meron": "Meron",
+    "bimeron": "Bimeron",
+    "afm_sk": "Antiferromagnetic_skyrmion",
+    "ferri_sk": "Ferrimagnetic_skyrmion"
+  },
+  "stale_html_terms": {
+    "单盘交错": 0,
+    "更短、更淡": 0,
+    "0.72": 0,
+    "_texture.png": 0,
+    "Help v38": 0,
+    "skyrmion_3d_visual_v38": 0
+  },
+  "stale_help_terms": {
+    "Help v38": 0,
+    "skyrmion_3d_visual_v38": 0,
+    "主图显示主导子晶格 A 的方向场": 0,
+    "0.72": 0,
+    "FIM skyrmion": 0,
+    "AFM/FIM": 0
+  },
+  "ferri_eta_070": 5,
+  "ferri_residual_main": true,
+  "ferri_residual_composite": true,
+  "ferri_ratio_marked_teaching": true,
+  "bisk_intrinsic_core_tuning": true,
+  "source_focus_copy": true,
+  "help_version_header": "# 磁性 Skyrmion 拓扑纹理图鉴 · Help v50"
+}

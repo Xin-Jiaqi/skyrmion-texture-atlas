@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>磁性 Skyrmion 家族 · 交互纹理图鉴 · Topological Magnetic Texture Atlas</title>
+<style>
+:root{
+  --bg:#f2f5f9; --panel:#fff; --line:#d7dde7; --line2:#e8edf4;
+  --text:#17191f; --muted:#687080; --blue:#2f6ff3; --soft:#f8fbff; --math:#0f172a;
+  --shadow:0 10px 30px rgba(20,30,48,.055);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{font-family:"Avenir Next","Inter","SF Pro Text","Segoe UI","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,select,input,a{font:inherit}
+a{text-decoration:none;color:inherit}
+.math,.formula,.termContent .formula{font-family:"STIX Two Text","Cambria Math","Georgia","Times New Roman",serif}
+.page{width:100%;height:100vh;padding:12px;display:grid;grid-template-columns:minmax(0,1.92fr) minmax(360px,.74fr);grid-template-rows:minmax(0,1fr) 158px;gap:10px;overflow:hidden}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.visualCard{grid-column:1;grid-row:1;padding:11px;display:grid;grid-template-rows:42px minmax(0,1fr) 26px;gap:8px;min-width:0;min-height:0}
+.visualTop{display:flex;align-items:center;gap:12px;min-width:0}
+.titleBlock{min-width:0;flex:1}.titleBlock h1{margin:0;font-size:20px;line-height:1.18;font-weight:760;letter-spacing:.01em}.titleBlock p{margin:5px 0 0;font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.presetWrap{width:286px;position:relative}.presetLabel{position:absolute;left:12px;top:-8px;background:#fff;padding:0 6px;color:var(--muted);font-size:10px;letter-spacing:.02em}.presetWrap select{width:100%;height:38px;border:1px solid #cfd6e1;border-radius:12px;background:#fff;padding:0 12px;font-size:13px;color:#20242d;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.visualGrid{display:grid;grid-template-columns:minmax(0,1.68fr) minmax(250px,.82fr);gap:9px;min-height:0}
+.mainPanel,.splitPanel{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;position:relative;min-height:0}
+.mainPanel{display:grid;grid-template-rows:40px minmax(0,1fr)}
+.mainPanel canvas,.splitPanel canvas{width:100%;height:100%;display:block}
+.mainHead{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 2px 14px}.mainHead b{font-size:13px;font-weight:760}.mainHead span{font-size:11px;color:var(--muted);line-height:1.35}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 12px;border:1px solid #d5dae1;border-radius:999px;background:#fbfbfc;font-size:12px;color:#555c69;white-space:nowrap}
+.mainChip{position:absolute;right:10px;top:10px;z-index:2}.reprBadge{position:absolute;left:14px;bottom:14px;z-index:5;display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:10px;background:rgba(255,255,255,.90);border:1px solid rgba(206,216,230,.95);box-shadow:0 4px 14px rgba(20,35,60,.08);color:#46536a;font-size:10.8px;font-weight:680;backdrop-filter:blur(5px)}
+.splitCol{display:grid;grid-template-rows:1fr 1fr;gap:9px;min-height:0}
+.splitBox{display:grid;grid-template-rows:66px minmax(0,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;min-height:0}
+.splitHead{padding:12px 12px 8px 12px;position:relative;z-index:2;background:#fff;line-height:1.24}.splitHead b{font-size:14px;font-weight:760}.splitHead span{display:block;margin-top:4px;font-size:11px;color:var(--muted);line-height:1.35}
+.legend{display:flex;align-items:center;gap:10px;padding:2px 10px 0;color:#434855;font-size:11px;overflow:hidden}.legendBar{flex:1;height:10px;border-radius:999px;border:1px solid #cfd4dc;background:linear-gradient(90deg,#f5f5f5 0%,#91d4e7 8%,#20c4ff 18%,#3769f3 28%,#9140eb 40%,#ff34c2 52%,#ff3a39 64%,#ffa330 76%,#e8eb37 82%,#2fdf55 90%,#001b07 100%)}
+.infoCard{grid-column:2;grid-row:1;padding:14px 14px 12px;display:grid;grid-template-rows:auto auto auto auto minmax(0,1fr) auto auto auto;gap:10px;min-width:0;min-height:0}
+.panelEyebrow{font-size:11px;font-weight:760;letter-spacing:.08em;text-transform:uppercase;color:#6e7890}.infoHead{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.infoHead h2{margin:0;font-size:19px;line-height:1.2;font-weight:780;word-break:keep-all}.infoLead{margin:0;color:#414653;font-size:12.5px;line-height:1.62}
+.topoBadge{display:inline-flex;align-items:center;justify-content:center;padding:0 12px;height:28px;border-radius:999px;background:#eff4ff;border:1px solid #d4defd;color:#3b63c6;font-weight:700;font-size:12px;cursor:pointer}
+.paramStrip{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:8px;align-items:stretch}.paramPill{border:1px solid var(--line);border-radius:14px;padding:9px 12px;background:#fbfcfe;display:flex;flex-direction:column;gap:6px;min-width:0}.paramPill span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}.paramPill b{font-size:18px;line-height:1.2;overflow-wrap:anywhere}.paramN{display:flex;align-items:center;justify-content:center;min-width:72px}
+.termBtn{background:none;border:none;padding:0;color:var(--muted);font-size:inherit;font-weight:inherit;cursor:pointer}
+.termBtn:hover{color:#415172;border-bottom-color:#6a84d9}
+.infoScroll{border-top:1px solid var(--line2);padding-top:8px;overflow:auto;min-height:0}
+.section{padding-bottom:8px;border-bottom:1px solid #eef1f5;margin-bottom:8px}.section:last-child{padding-bottom:0;margin-bottom:0;border-bottom:none}.section h3{margin:0 0 6px;font-size:12px;font-weight:720}.section p,.section li{margin:0;color:#343947;font-size:12px;line-height:1.58}.section ul{margin:0;padding-left:18px;display:grid;gap:4px}.formula{font-family:"STIX Two Text","Cambria Math","Latin Modern Math","Times New Roman",serif;font-size:14px;background:linear-gradient(180deg,#fbfdff 0%,#f5f8fd 100%);border:1px solid #dfe7f2;border-left:4px solid #90a9e8;border-radius:12px;padding:10px 12px;margin:8px 0;color:var(--math);line-height:1.55;white-space:normal;box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}.section table,.dialogBody table{width:100%;border-collapse:separate;border-spacing:0;margin-top:8px;border:1px solid #e1e6ef;border-radius:12px;overflow:hidden}.section td,.section th,.dialogBody td,.dialogBody th{border-bottom:1px solid #e8edf4;padding:8px 10px;font-size:12px;text-align:left}.section tr:last-child td,.dialogBody tr:last-child td{border-bottom:none}.section th,.dialogBody th{background:#f7f9fc;font-weight:700}
+.compositeBox,.resourceBox{border:1px solid var(--line);border-radius:16px;padding:12px;background:linear-gradient(180deg,#fcfdff 0%,#f8fbff 100%)}.miniTitle{margin:0 0 8px;font-size:12px;font-weight:780;letter-spacing:.01em}.miniSub{font-size:11px;color:var(--muted);line-height:1.5}.compositeBox canvas{width:100%;height:142px;display:block;border:1px solid #e1e7f0;border-radius:14px;background:#fff}
+.source{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe;color:#353a47;font-size:12px}.source a{color:#2e63d3;text-decoration:none}.source small{display:block;color:var(--muted);font-size:11px;margin-top:1px}
+.resourceGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.span2{grid-column:1 / -1}.sourceInline{margin-top:10px;padding-top:10px;border-top:1px solid #e7ebf1;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;font-size:12px;color:#353a47}.sourceInline small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.linkBtn{display:flex;align-items:center;justify-content:center;min-height:40px;padding:0 12px;border-radius:12px;border:1px solid #cfd6e3;background:#fff;color:#232834;font-size:12px;font-weight:650}.linkBtn.ghost{background:#f8fafc}.resourceNote{display:none}
+.controlsCard{grid-column:1;grid-row:2;padding:10px 12px;display:grid;grid-template-columns:minmax(0,1fr) 212px;grid-template-rows:auto auto auto;gap:8px;overflow:hidden}
+.sliderGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-content:start}.sliderBox{display:grid;gap:6px}.sliderLabel{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#353a47}.sliderLabel output{font-weight:700}input[type=range]{width:100%}
+.viewGrid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:36px;gap:6px;align-content:start}button,.btnLike{height:36px;border-radius:12px;border:1px solid #cfd6e3;background:#fff;color:#232834;cursor:pointer}button:hover,.linkBtn:hover{background:#f7faff}
+.advanced{grid-column:1 / -1;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;align-self:end}
+.advanced summary{list-style:none;display:flex;align-items:center;justify-content:space-between;padding:8px 10px;cursor:pointer}.advanced summary::-webkit-details-marker{display:none}.advanced .hint{font-size:11px;color:var(--muted)}
+.advancedBody{padding:2px 10px 8px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.advItem{display:grid;gap:6px}.advItem label{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#353a47}
+.helpDialog,.termDialog{width:min(940px,92vw);max-height:88vh;border:none;border-radius:20px;padding:0;box-shadow:0 40px 90px rgba(0,0,0,.18)}.helpDialog::backdrop,.termDialog::backdrop{background:rgba(20,24,31,.35)}.dialogHead{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#ffffff 0%,#fbfcff 100%)}.dialogHead h2{margin:0;font-size:22px;font-weight:760;letter-spacing:.01em}.dialogBody{padding:20px 20px 18px;overflow:auto;max-height:calc(88vh - 66px)}
+.quickGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 4px}.quickCard{border:1px solid #dfe6f2;border-radius:16px;background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);padding:14px;box-shadow:0 4px 14px rgba(30,50,90,.04)}.quickCard h4{margin:0 0 8px;font-size:15px}.quickCard p,.quickCard li{margin:0;color:#374151;font-size:13px;line-height:1.65}.quickCard ul{margin:0;padding-left:18px;display:grid;gap:4px}.quickStats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.quickStat{border:1px solid #dfe5ee;border-radius:14px;padding:12px;background:#fff}.quickStat b{display:block;font-size:26px;font-family:"Cambria Math","STIX Two Text","Times New Roman",serif;color:#0f172a;margin-bottom:4px}.quickStat span{display:block;font-size:12px;color:#5e6677;line-height:1.45}.termContent .formula{margin:10px 0}.termContent h3{margin:0 0 8px;font-size:18px}.termContent p,.termContent li{font-size:13px;line-height:1.75;color:#2e3440}.termContent ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px}.termContent table{width:100%;border-collapse:separate;border-spacing:0;margin-top:10px;border:1px solid #dde5f0;border-radius:12px;overflow:hidden}.termContent td,.termContent th{border-bottom:1px solid #e7edf5;padding:9px 10px;font-size:12px}.termContent th{background:#f7f9fc;font-weight:700}.termContent tr:last-child td{border-bottom:none}.termContent .lead{color:#4b5262;font-size:13px}
+@media (max-width:1380px){.page{grid-template-columns:minmax(0,1.8fr) minmax(330px,.8fr)}.advancedBody{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.sliderLockWrap{position:relative}
+.sliderLock{position:absolute;inset:0;border-radius:14px;background:rgba(244,247,252,.76);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:16px 18px;border:1px dashed #cbd4e2;box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.sliderLock b{font-size:14px;font-weight:760;color:#1f2937;margin-bottom:6px}
+.sliderLock span{font-size:12px;line-height:1.55;color:#5b6577;max-width:72ch}
+.sliderLockWrap.isLocked .sliderBox{opacity:.42}
+.sliderLockWrap.isLocked input[type=range]{pointer-events:none}
+.controlStatus{margin:4px 0 14px;padding:12px 14px;border:1px solid #dbe3ef;border-radius:16px;background:linear-gradient(180deg,#fcfdff 0%,#f8fbff 100%)}
+.controlStatus b{display:block;font-size:12px;font-weight:780;color:#263143;margin-bottom:6px;letter-spacing:.01em}
+.controlStatus p{margin:0;font-size:12px;line-height:1.6;color:#526074}
+.controlStatus p+p{margin-top:6px}
+.controlsCard input:disabled{cursor:not-allowed}
+
+.tagLine{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.softPill{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;border:1px solid #dde5f2;background:#f7faff;color:#5a6783;font-size:11px;font-weight:600}.viewLabel{font-size:11px;font-weight:760;letter-spacing:.08em;text-transform:uppercase;color:#6e7890;margin:2px 0 6px}.resourceBox .miniTitle,.compositeBox .miniTitle{display:flex;align-items:center;justify-content:space-between}.subtle{color:var(--muted)}
+
+/* v28 scientific-boundary pass */
+[hidden]{display:none!important}
+.infoCard{grid-template-rows:auto auto auto auto minmax(0,1fr) auto auto;gap:9px;overflow:hidden}
+#controlStatus[hidden]{display:none!important}.controlStatus{margin:0;padding:10px 12px;border-radius:13px}.controlStatus p{font-size:11.5px;line-height:1.5}
+.infoScroll{padding:10px 2px 0 0;scrollbar-width:thin;scrollbar-color:#aeb7c6 transparent}.infoScroll::-webkit-scrollbar{width:6px}.infoScroll::-webkit-scrollbar-thumb{background:#aeb7c6;border-radius:99px}.infoScroll::-webkit-scrollbar-track{background:transparent}
+.resourceBox{padding:10px 12px}.resourceHead{display:flex;align-items:center;justify-content:space-between;gap:8px}.resourceHead .miniTitle{margin:0}.resourceLinks{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.resourceLink{height:30px;min-width:auto;padding:0 10px;border:1px solid #d5dde9;border-radius:10px;background:#fff;color:#263143;font-size:11px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.resourceLink:hover{background:#f5f8fd;border-color:#bfcadd}.sourceInline{margin-top:8px;padding-top:8px}.sourceInline small{line-height:1.35}
+.controlsCard{grid-template-columns:minmax(0,1fr) 220px;grid-template-rows:auto auto;gap:10px 12px;align-items:start}.controlMain{grid-column:1;min-width:0}.viewSide{grid-column:2;min-width:0}.advanced{grid-column:1/-1}.controlsTitle,.viewLabel{margin:0 0 8px}.sliderGrid{gap:16px}.sliderLock{padding:10px 14px;justify-content:center}.sliderLock b{font-size:12.5px;margin-bottom:3px}.sliderLock span{font-size:11px;line-height:1.4}.viewGrid{grid-auto-rows:34px}.advanced summary{padding:7px 10px}.advanced .hint{font-size:10.5px}.page{grid-template-rows:minmax(0,1fr) 150px}
+.formula{letter-spacing:.01em}.section h3{font-size:12.5px}.section p,.section li{font-size:11.8px;line-height:1.55}
+@media print{html,body{background:#fff}.page{height:100vh;padding:0;gap:8px}.card{box-shadow:none}.resourceLink,button{box-shadow:none}}
+
+
+/* v29 final product-layout pass */
+.infoCard{display:flex;flex-direction:column;gap:9px;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#aeb7c6 transparent}
+.infoCard::-webkit-scrollbar{width:6px}.infoCard::-webkit-scrollbar-thumb{background:#aeb7c6;border-radius:99px}.infoCard::-webkit-scrollbar-track{background:transparent}
+.infoCard .controlStatus{display:none!important}
+.infoScroll{overflow:visible;min-height:0;padding:10px 0 0;border-top:1px solid var(--line2);flex:0 0 auto}
+.compositeBox{flex:0 0 auto;padding:10px 11px}.compositeBox canvas{height:112px}.compositeBox .miniSub{font-size:10.8px;line-height:1.42;margin-bottom:6px}
+.resourceBox{flex:0 0 auto;margin-top:auto;padding:10px 11px}.resourceLinks{gap:5px}.resourceLink{height:29px;padding:0 9px;font-size:10.8px}.sourceInline{margin-top:7px;padding-top:7px}.sourceInline b{font-size:11px}.sourceInline small{font-size:10.6px;line-height:1.3}.oaNote{display:inline-flex;align-items:center;margin-left:6px;padding:1px 6px;border-radius:999px;background:#eef8f2;color:#267a4a;border:1px solid #cee8d7;font-size:9.6px;font-weight:700}
+.paramStrip{gap:7px}.paramPill{padding:8px 10px;min-height:72px}.paramPill span{font-size:10.3px;line-height:1.25}.paramPill b{font-size:17px}
+.infoLead{font-size:12px;line-height:1.52}.section{padding-bottom:7px;margin-bottom:7px}.section h3{margin-bottom:5px}.section p,.section li{font-size:11.5px;line-height:1.5}
+.sliderLock{backdrop-filter:blur(1px);background:rgba(245,248,252,.88)}
+.controlsCard{min-height:150px}.controlMain{padding-top:1px}.viewSide{padding-top:1px}
+@media(max-width:1450px){.infoCard{padding:12px}.paramPill span{font-size:10px}.paramPill b{font-size:15.5px}.infoHead h2{font-size:18px}.paramPill{padding:7px 8px}.paramPill b{font-size:16px}.resourceLink{font-size:10.5px;padding:0 8px}.compositeBox canvas{height:104px}}
+
+
+@media print{
+  .page{grid-template-rows:minmax(0,1fr) 136px!important}
+  .controlsCard{min-height:136px!important;padding:7px 9px!important}
+  .viewGrid{grid-auto-rows:31px!important}
+  .advanced summary{padding:5px 9px!important}
+  .infoCard{overflow:hidden!important;gap:7px!important}
+  .infoScroll{padding-top:7px!important}
+  .section{padding-bottom:5px!important;margin-bottom:5px!important}
+  .section p,.section li{font-size:10.8px!important;line-height:1.42!important}
+  .compositeBox{padding:8px 9px!important}.compositeBox canvas{height:92px!important}.compositeBox .miniSub{font-size:10px!important}
+  .resourceBox{padding:7px 9px!important}.resourceLinks{display:none!important}.sourceInline{margin-top:0!important;padding-top:0!important;border-top:none!important}
+  .sourceInline small{font-size:9.8px!important}
+}
+
+
+@media print{
+  .page{grid-template-rows:minmax(0,1fr) 112px!important}
+  .controlsCard{min-height:112px!important;padding:6px 8px!important}
+  .controlsTitle,.viewLabel{margin-bottom:4px!important;font-size:10px!important}
+  .sliderGrid{gap:10px!important}.sliderLabel{font-size:10px!important}
+  .viewGrid{grid-auto-rows:27px!important;gap:4px!important}.viewGrid button{height:27px!important;font-size:10.5px!important}
+  .advanced{display:none!important}
+  .sliderLock{padding:6px 10px!important}.sliderLock b{font-size:10.5px!important}.sliderLock span{font-size:9.5px!important;line-height:1.25!important}
+}
+
+
+/* v32 layout audit pass: full-height right rail + non-overlapping bottom controls */
+.page{
+  grid-template-columns:minmax(0,1.92fr) minmax(360px,.74fr);
+  grid-template-rows:minmax(0,1fr) 164px;
+  align-items:stretch;
+}
+.infoCard{
+  grid-column:2;
+  grid-row:1 / 3;
+  min-height:0;
+  height:auto;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.infoScroll{
+  flex:1 1 auto;
+  min-height:80px;
+  overflow:auto;
+  padding:10px 4px 0 0;
+}
+.compositeBox{flex:0 0 auto}
+.resourceBox{flex:0 0 auto;margin-top:auto}
+.controlsCard{
+  grid-column:1;
+  grid-row:2;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 232px;
+  grid-template-rows:minmax(0,1fr) 36px;
+  column-gap:14px;
+  row-gap:8px;
+  padding:10px 12px;
+  min-height:0;
+  overflow:hidden;
+}
+.controlMain{grid-column:1;grid-row:1;min-width:0;align-self:start}
+.viewSide{grid-column:2;grid-row:1;min-width:0;align-self:start}
+.advanced{grid-column:1 / -1;grid-row:2;align-self:stretch;min-height:0}
+.controlsTitle,.viewLabel{margin:0 0 7px}
+.sliderGrid{gap:16px}
+.sliderBox{min-width:0}
+.viewGrid{grid-template-columns:1fr 1fr;grid-auto-rows:34px;gap:6px}
+.advanced summary{height:36px;padding:0 10px}
+.advanced[open]{position:relative;z-index:10;overflow:visible}
+@media (max-height:900px){
+  .page{grid-template-rows:minmax(0,1fr) 158px}
+  .controlsCard{grid-template-rows:minmax(0,1fr) 34px;padding:8px 10px}
+  .viewGrid{grid-auto-rows:32px}
+  .advanced summary{height:34px}
+}
+@media print{
+  .page{grid-template-rows:minmax(0,1fr) 164px!important}
+  .infoCard{grid-row:1 / 3!important}
+  .controlsCard{grid-row:2!important}
+}
+
+
+/* v33 interaction pass: advanced settings open as a contained popover, not an overflowing row */
+.controlsCard{overflow:visible;position:relative;z-index:20}
+.advanced{position:relative;overflow:visible;z-index:30}
+.advanced[open]{overflow:visible}
+.advanced[open] .advancedBody{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:calc(100% + 8px);
+  padding:14px 14px 12px;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+  background:rgba(255,255,255,.985);
+  border:1px solid #d6dde8;
+  border-radius:16px;
+  box-shadow:0 18px 48px rgba(26,39,65,.16);
+  backdrop-filter:blur(8px);
+}
+.advanced[open] summary{background:#f8faff;border-color:#cfd8e6}
+@media (max-width:1250px){.advanced[open] .advancedBody{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+
+/* v34 production pass: keep advanced popover clear of the view-control column */
+.advanced[open] .advancedBody{
+  right:246px;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+@media (max-width:1280px){
+  .advanced[open] .advancedBody{right:246px;grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:1040px){
+  .advanced[open] .advancedBody{right:0;grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+/* Explicit vertical rhythm prevents auto-placement regressions. */
+.controlMain{grid-row:1!important}
+.viewSide{grid-row:1!important}
+.advanced{grid-row:2!important}
+/* Right rail should end exactly with the lower control card. */
+.infoCard{align-self:stretch}
+.resourceBox{margin-top:auto}
+
+
+.sublatticeLegend{font-size:11px;color:#5b6577}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="card visualCard">
+    <div class="visualTop">
+      <div class="titleBlock"><h1>磁性 Skyrmion 家族 · 交互纹理图鉴</h1><p>Topological Magnetic Texture Atlas · 二维拓扑磁纹理交互学习与文献对照</p></div>
+      <div class="presetWrap"><span class="presetLabel">纹理预设</span><select id="preset">
+        <optgroup label="Skyrmion 家族">
+          <option value="neel_out">Néel skyrmion · 径向向外</option>
+          <option value="neel_in">Néel skyrmion · 径向向内</option>
+          <option value="bloch_cw">Bloch skyrmion · 顺时针 CW</option>
+          <option value="bloch_ccw">Bloch skyrmion · 逆时针 CCW</option>
+          <option value="intermediate">Intermediate helicity · γ=π/4</option>
+          <option value="higher2">Higher-order skyrmion · m=2</option>
+          <option value="anti">Antiskyrmion · 反斯格明子</option>
+          <option value="skyrmionium">Skyrmionium · 2π-skyrmion</option>
+          <option value="biskyrmion">Biskyrmion · 双核心</option>
+        </optgroup>
+        <optgroup label="Meron 家族">
+          <option value="meron">Meron · 半斯格明子</option>
+          <option value="bimeron">Bimeron · 面内背景</option>
+        </optgroup>
+        <optgroup label="磁性背景 / 双子晶格">
+          <option value="afm_sk">反铁磁 skyrmion · AFM</option>
+          <option value="ferri_sk">亚铁磁 skyrmion · FiM</option>
+        </optgroup>
+      </select></div>
+    </div>
+    <div class="visualGrid">
+      <div class="mainPanel">
+        <div class="mainHead"><span><b>主图 · 磁纹理</b><br><span id="mainSub">论文风格主视图：底色与箭头同步显示</span></span><span id="mainChip" class="chip">Néel skyrmion · outward</span></div>
+        <canvas id="mainCanvas"></canvas><div id="reprBadge" class="reprBadge" hidden></div>
+      </div>
+      <div class="splitCol">
+        <div class="splitBox"><div class="splitHead"><b>箭头场 · Arrow field</b><span id="arrowSub">只显示局域磁化箭头，用于识别绕转方式</span></div><div class="splitPanel"><canvas id="arrowCanvas"></canvas></div></div>
+        <div class="splitBox"><div class="splitHead"><b>颜色场 · Color field</b><span id="colorSub">只显示颜色编码，用于对应面外分量与面内方位</span></div><div class="splitPanel"><canvas id="colorCanvas"></canvas></div></div>
+      </div>
+    </div>
+    <div class="legend"><div class="legendBar"></div><span id="legendWhite">白：+z</span><span id="legendBlack">黑：−z</span><span id="legendColor">彩色：面内方向</span></div>
+  </section>
+
+  <aside class="card infoCard">
+    <div class="panelEyebrow">纹理摘要 · Texture brief</div>
+    <div class="infoHead"><div><h2 id="infoTitle">Néel skyrmion · outward</h2></div><button id="chargeBadge" class="topoBadge" data-term="topology">N = +1</button></div>
+    <p id="infoLead" class="infoLead"></p>
+    <div class="paramStrip">
+      <div class="paramPill"><span><button class="termBtn" data-term="polarity" id="labelP">polarity</button></span><b id="infoP">+1</b></div>
+      <div class="paramPill"><span><button class="termBtn" data-term="vorticity" id="labelM">vorticity</button></span><b id="infoM">+1</b></div>
+      <div class="paramPill"><span><button class="termBtn" data-term="helicity" id="labelG">helicity</button></span><b id="infoG">0°</b></div>
+      <div class="paramPill"><span><button class="termBtn" data-term="topology" id="labelN">topological charge</button></span><b id="infoN">+1</b></div>
+    </div>
+    <div id="controlStatus" class="controlStatus"></div>
+    <div id="infoScroll" class="infoScroll"></div>
+    <div id="compositeBox" class="compositeBox" hidden>
+      <div class="miniTitle">复合构型 · Composite view</div>
+      <div id="compositeSub" class="miniSub"></div>
+      <canvas id="compositeCanvas" width="320" height="160"></canvas>
+    </div>
+    <div class="resourceBox">
+      <div class="resourceHead"><span class="miniTitle">参考与资源</span><span id="infoTag" class="softPill">Skyrmion</span></div>
+      <div class="resourceLinks">
+        <button id="helpBtn" class="resourceLink">使用指南</button>
+        <a href="https://zhuanlan.zhihu.com/p/2069027257536999823" target="_blank" rel="noopener" class="resourceLink" title="磁性 Skyrmion 家族综述：从 Néel、Bloch 到 Meron、Hopfion - 辛嘉琪">延伸阅读 · 知乎</a>
+        <a href="./Beyond_skyrmions_Physics_Reports_895_2021.pdf" download class="resourceLink">原文 PDF</a>
+        <a href="https://doi.org/10.1016/j.physrep.2020.10.001" target="_blank" rel="noopener" class="resourceLink">DOI / 期刊页面</a>
+        <button id="exportPNG" class="resourceLink">导出 PNG</button>
+      </div>
+      <div class="sourceInline"><span><b>原文定位 · Source focus</b><span class="oaNote">Open access · CC BY</span><small id="infoSource"></small></span></div>
+    </div>
+  </aside>
+
+  <section class="card controlsCard">
+    <div class="controlMain">
+      <div class="controlsTitle">物理参数 · Physical parameters</div>
+      <div class="sliderLockWrap" id="sliderLockWrap">
+        <div class="sliderGrid">
+          <div class="sliderBox"><div class="sliderLabel"><button class="termBtn" data-term="polarity" id="controlLabelP">极性 p · Polarity</button><output id="po">+1</output></div><input id="p" type="range" min="-1" max="1" step="2" value="1"></div>
+          <div class="sliderBox"><div class="sliderLabel"><button class="termBtn" data-term="vorticity" id="controlLabelM">涡度 m · Vorticity</button><output id="mo">1</output></div><input id="m" type="range" min="-3" max="3" step="1" value="1"></div>
+          <div class="sliderBox"><div class="sliderLabel"><button class="termBtn" data-term="helicity" id="controlLabelG">螺旋度 γ · Helicity</button><output id="go">0°</output></div><input id="g" type="range" min="-180" max="180" step="5" value="0"></div>
+        </div>
+        <div id="sliderLock" class="sliderLock" hidden><b id="sliderLockTitle">该预设的 p / m / γ 已固定</b><span id="sliderLockText">该复合纹理不开放单一全局 p、m、γ 调节。</span></div>
+      </div>
+    </div>
+    <div class="viewSide">
+      <div class="viewLabel">视角与复位 · View</div>
+      <div class="viewGrid"><button data-view="paper">论文视角</button><button data-view="top">俯视</button><button data-view="side">侧视</button><button id="resetPreset">恢复预设</button></div>
+    </div>
+    <details class="advanced"><summary><span>高级渲染选项</span><span class="hint">c=0.11 · β=0.995 · q=3 · rings=10 · L=0.20</span></summary><div class="advancedBody">
+      <div class="advItem"><label><span>中心白区 c</span><output id="co">0.11</output></label><input id="c" type="range" min="0.06" max="0.22" step="0.01" value="0.11"></div>
+      <div class="advItem"><label><span>灰黑外圈 β</span><output id="bo">0.995</output></label><input id="beta" type="range" min="0.90" max="0.995" step="0.005" value="0.995"></div>
+      <div class="advItem"><label><span>外圈收束 q</span><output id="qo">3</output></label><input id="q" type="range" min="1" max="5" step="0.25" value="3"></div>
+      <div class="advItem"><label><span>箭头环数</span><output id="ro">10</output></label><input id="rings" type="range" min="5" max="10" step="1" value="10"></div>
+      <div class="advItem"><label><span>箭头长度 L</span><output id="Lo">0.20</output></label><input id="L" type="range" min="0.14" max="0.34" step="0.01" value="0.20"></div>
+    </div></details>
+  </section>
+</div>
+
+<dialog id="helpDialog" class="helpDialog"><div class="dialogHead"><h2>磁性 Skyrmion 家族 · 交互纹理图鉴 · 使用指南</h2><button id="closeHelp">关闭</button></div><div class="dialogBody" id="helpBody"></div></dialog>
+<dialog id="termDialog" class="termDialog"><div class="dialogHead"><h2 id="termTitle">术语说明</h2><button id="closeTerm">关闭</button></div><div class="dialogBody termContent" id="termBody"></div></dialog>
+
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const C={main:$('mainCanvas'),arrow:$('arrowCanvas'),color:$('colorCanvas'),comp:$('compositeCanvas')};
+const DEFAULTS={c:.11,beta:.995,q:3,rings:10,L:.20};
+const DOI='https://doi.org/10.1016/j.physrep.2020.10.001';
+const LOCAL_PDF='./Beyond_skyrmions_Physics_Reports_895_2021.pdf';
+const PRESET_EXPORT_NAMES={neel_out:'Neel_skyrmion_outward',neel_in:'Neel_skyrmion_inward',bloch_cw:'Bloch_skyrmion_clockwise',bloch_ccw:'Bloch_skyrmion_counterclockwise',intermediate:'Intermediate_helicity_skyrmion',higher2:'Higher_order_skyrmion_m_equals_2',anti:'Antiskyrmion',skyrmionium:'Skyrmionium',biskyrmion:'Biskyrmion',meron:'Meron',bimeron:'Bimeron',afm_sk:'Antiferromagnetic_skyrmion',ferri_sk:'Ferrimagnetic_skyrmion'};
+const TERM_DATA={
+  topology:{title:'拓扑荷 N<sub>Sk</sub> / topological charge',html:`<p class="lead">理解 skyrmion 家族，首先要把四个量分清：拓扑荷 N<sub>Sk</sub>、polarity p、vorticity m 和 helicity γ。</p><div class="formula">m(r) = (sinθ cosΦ, sinθ sinΦ, cosθ)<sup>T</sup><br>其中 θ 控制面外分量，Φ 控制面内方位；实空间位置可写作 r = r(cosφ, sinφ)。对于理想轴对称 skyrmion，常有 θ = θ(r)，Φ = Φ(φ)。</div><p>原文 Eqs. (1)–(2) 定义</p><div class="formula">N<sub>Sk</sub> = ∫ n<sub>Sk</sub>(r) d²r<br>n<sub>Sk</sub>(r) = (1 / 4π) m · [∂<sub>x</sub>m × ∂<sub>y</sub>m]</div><p>N<sub>Sk</sub> 记录磁化方向覆盖单位球面的次数和方向；局域密度 n<sub>Sk</sub>(r) 告诉我们拓扑绕转主要集中在哪些区域。对完整轴对称 skyrmion，常有 N<sub>Sk</sub> = m p。</p>`},
+  polarity:{title:'Polarity p',html:`<p class="lead">Polarity 只比较中心与远处背景的面外方向。</p><div class="formula">p = - 1/2 [ cosθ(∞) - cosθ(0) ] = [ cosθ(0) - cosθ(∞) ] / 2</div><ul><li>中心朝 +z、背景朝 −z：p = +1</li><li>中心朝 −z、背景朝 +z：p = −1</li></ul><p>因此 polarity 决定的是“中心/背景谁朝上、谁朝下”，而不是面内旋转方式。</p>`},
+  vorticity:{title:'Vorticity m',html:`<p class="lead">Vorticity 描述：沿实空间方位角 φ 绕纹理中心一周，面内磁化方位角 Φ 改变了多少个 2π。</p><div class="formula">m = [ Φ(2π) - Φ(0) ] / 2π , &nbsp; m = 0, ±1, ±2, ...</div><ul><li>m = +1：沿一个方向转一圈</li><li>m = −1：沿相反方向转一圈</li><li>|m| &gt; 1：发生多重绕转</li></ul><p>因此 vorticity 决定了面内磁化绕中心旋转的圈数和方向。</p>`},
+  helicity:{title:'Helicity γ',html:`<p class="lead">Helicity 决定面内箭头相对径向偏转了多少。</p><div class="formula">Φ(φ) = mφ + γ</div><p>对于 m = +1 的圆对称 skyrmion，γ 表示面内磁化相对实空间径向的统一偏移。</p><table><tr><th>γ</th><th>类型</th><th>面内磁化外观</th></tr><tr><td>0</td><td>Néel</td><td>径向朝外</td></tr><tr><td>π</td><td>Néel</td><td>径向朝内</td></tr><tr><td>+π/2</td><td>Bloch</td><td>沿一种圆周切向旋转</td></tr><tr><td>−π/2</td><td>Bloch</td><td>沿相反圆周切向旋转</td></tr><tr><td>其他角度</td><td>intermediate</td><td>介于径向与切向之间</td></tr></table>`},
+  orientation:{title:'Antiskyrmion orientation χ',html:`<p class="lead">对 antiskyrmion，第三个角度不宜直接解释为圆对称 skyrmion 的 helicity。这里把它作为整个各向异性纹理相对观察坐标的取向角 χ。</p><div class="formula">χ : antiskyrmion pattern orientation</div><p>改变 χ 会旋转 Néel-like / Bloch-like 主轴在平面内的相对方向，但不会把 antiskyrmion 变成普通圆对称 skyrmion。</p>`},
+  sublattice:{title:'双子晶格 / 双层表示',html:`<p class="lead">反铁磁与亚铁磁 skyrmion 都可理解为两个相互耦合、局域磁矩近乎反平行的子纹理。</p><div class="formula">m<sub>B</sub>(r) ≈ −m<sub>A</sub>(r)</div><p>反铁磁情形两个子晶格磁矩幅值相等，净磁化局域补偿；亚铁磁情形幅值不同，因此保留非零净磁化。</p>`},
+  neelorder:{title:'Néel order parameter · Néel 序参量',html:`<p class="lead">对理想两子晶格反铁磁体，更自然的拓扑变量不是净磁化 M，而是 Néel 序参量 n。</p><div class="formula">n = (m<sub>A</sub> − m<sub>B</sub>) / 2</div><p>虽然磁化的拓扑荷密度可以局域补偿，Néel 序参量仍可形成非平庸 skyrmion 纹理，其拓扑荷可为 ±1。</p>`},
+  compensation:{title:'补偿关系 / compensation',html:`<p class="lead">“补偿”需要区分磁化补偿与角动量补偿。</p><p>反铁磁 skyrmion 的两个子晶格局域磁矩反平行且幅值相等，净磁化近似为零。亚铁磁 skyrmion 两子晶格磁矩幅值不同，因此净磁化不为零；但在特定角动量补偿温度，动力学中的横向偏转可以消失。</p>`}
+};
+const TEXTURES={
+  neel_out:{kind:'sk',title:'Néel skyrmion · 径向向外',lead:'完整 skyrmion：中心与远处背景面外磁化相反，面内磁化沿径向向外。',p:'+1',m:'+1',g:'0°',N:'+1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Sec. 2.1, pp. 3–5 · Fig. 3(a), p. 4`,tag:'Skyrmion',params:[1,1,0],sections:[['几何定义',`<div class="formula">p=+1,&nbsp;&nbsp; m=+1,&nbsp;&nbsp; γ=0,&nbsp;&nbsp; N<sub>Sk</sub>=+1</div><p>面内磁化与实空间径向平行。对理想轴对称纹理可写为 Φ(φ)=φ。</p>`],['一眼识别',['中心朝 +z、背景朝 −z','彩色区呈放射状“刺猬”结构','面内箭头径向朝外']],['物理要点',`<p>Néel 与 Bloch / intermediate 的主要区别在 helicity；只要 p 与 m 不变，拓扑荷 N<sub>Sk</sub> = m p 不变。</p>`]]},
+  neel_in:{kind:'sk',title:'Néel skyrmion · 径向向内',lead:'与径向向外的 Néel skyrmion 拓扑等价；面内磁化整体反转为径向向内。',p:'+1',m:'+1',g:'180°',N:'+1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Sec. 2.1, pp. 3–5 · Eq. (7), p. 5`,tag:'Skyrmion',params:[1,1,180],sections:[['几何定义',`<div class="formula">m=+1,&nbsp;&nbsp; γ=π,&nbsp;&nbsp; N<sub>Sk</sub>=+1</div><p>面内磁化仍沿径向，但方向与 outward 版本相反。</p>`],['一眼识别',['圆对称','箭头整体径向朝内','中心/背景与 outward 版本相同']],['物理要点',`<p>helicity 改变外观，不改变拓扑荷。</p>`]]},
+  bloch_cw:{kind:'sk',title:'Bloch skyrmion · 顺时针 CW',lead:'完整 skyrmion：面内磁化垂直于径向，沿圆周切向旋转。',p:'+1',m:'+1',g:'−90°',N:'+1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Eq. (7), p. 5 · Fig. 4(b), p. 6`,tag:'Skyrmion',params:[1,1,-90],sections:[['几何定义',`<div class="formula">p=+1,&nbsp;&nbsp; m=+1,&nbsp;&nbsp; γ=-π/2,&nbsp;&nbsp; N<sub>Sk</sub>=+1</div><p>面内磁化相对径向统一偏转 90°，因此呈切向旋转。</p>`],['一眼识别',['圆对称','箭头沿圆周切向','俯视类似旋涡']],['物理要点',`<p>体相 DMI 常稳定 Bloch 型 skyrmion。与 CW 版本对应的 CCW 版本只改变 helicity 符号。</p>`]]},
+  bloch_ccw:{kind:'sk',title:'Bloch skyrmion · 逆时针 CCW',lead:'与 CW Bloch skyrmion 拓扑等价；helicity 改变后，切向绕转方向相反。',p:'+1',m:'+1',g:'+90°',N:'+1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Sec. 2.1, pp. 3–5 · Eq. (7), p. 5`,tag:'Skyrmion',params:[1,1,90],sections:[['几何定义',`<div class="formula">p=+1,&nbsp;&nbsp; m=+1,&nbsp;&nbsp; γ=+π/2,&nbsp;&nbsp; N<sub>Sk</sub>=+1</div>`],['一眼识别',['圆对称','切向旋转','与 CW 版本的面内箭头方向相反']],['物理要点',`<p>对于固定 p 与 m，CW / CCW 只是 helicity 的两种取值。</p>`]]},
+  intermediate:{kind:'sk',title:'Intermediate-helicity skyrmion · γ=π/4',lead:'基本保持圆对称，面内磁矩同时具有径向与切向分量；可以把它看成 Néel skyrmion 的面内箭头整体旋转了一个角度。',p:'+1',m:'+1',g:'45°',N:'+1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(b), p. 4 · Sec. 3.1.1, pp. 12–13 · Fig. 7(a,b), p. 15`,tag:'Skyrmion',params:[1,1,45],sections:[['几何定义',`<p>Intermediate-helicity skyrmion 基本保持圆对称，面内磁矩同时具有径向和切向分量。可以想象将 Néel skyrmion 的全部面内箭头统一旋转一个角度 γ，纹理会连续过渡到 Bloch skyrmion。</p><div class="formula">p=+1,&nbsp;&nbsp; m=+1,&nbsp;&nbsp; γ=π/4</div><div class="formula">N<sub>Sk</sub>=+1</div>`],['一眼识别',['仍近似圆对称','箭头既不纯径向也不纯切向','整体像 Néel 纹理统一旋转一个角度']],['物理要点',`<p>原文 Sec. 3.1.1 与 Fig. 7(a,b) 说明，helicity 还会改变自旋轨道力矩驱动下的运动方向。</p>`]]},
+  higher2:{kind:'sk',title:'Higher-order skyrmion · m=2',lead:'面内磁化围绕中心完成多重绕转；这里 m=2，因此自旋球面被多次覆盖。',p:'+1',m:'+2',g:'0°',N:'+2',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(c), p. 4 · Sec. 3.1, p. 12`,tag:'Higher-order',params:[1,2,0],sections:[['几何定义',`<div class="formula">|m|>1,&nbsp;&nbsp; 当前示例取 m=2,&nbsp;&nbsp; N<sub>Sk</sub>=mp=+2</div>`],['一眼识别',['颜色绕中心循环两次','面内箭头多重缠绕','仍保留单一中心']],['物理要点',`<p>Higher-order skyrmion 仍是单一拓扑对象，但其面内绕转圈数高于普通 skyrmion。</p>`]]},
+  anti:{kind:'anti',title:'Antiskyrmion · 反斯格明子',lead:'反向 vorticity 的完整拓扑纹理；与圆对称 skyrmion 不同，它沿不同方向分别呈现 Néel-like 与 Bloch-like 截面。',p:'+1',m:'−1',g:'orientation',N:'−1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(a), p. 4 · Sec. 3.1.2, pp. 13–14 · Fig. 7(e,f), p. 15`,tag:'Antiskyrmion',params:[1,-1,0],sections:[['几何定义',`<div class="formula">m=-1,&nbsp;&nbsp; N<sub>Sk</sub>=-1</div><p>普通 skyrmion 常取 m=+1；antiskyrmion 则具有相反 vorticity。对该对象，所谓 helicity 更接近各向异性纹理相对晶轴的整体取向。</p>`],['一眼识别',['连续圆对称性消失','主轴方向呈 Néel-like 截面','对角方向呈 Bloch-like 截面','常出现四瓣 / 交替式各向异性']],['物理要点',`<p>原文 Fig. 7(e,f) 说明，特定取向下 antiskyrmion 的驱动轨迹可显著区别于普通 skyrmion。</p>`]]},
+  skyrmionium:{kind:'ium',title:'Skyrmionium · 2π-skyrmion',lead:'中心与远处背景方向相同，中间存在一圈反向磁化；局域拓扑非平凡，但总拓扑荷相互抵消。',p:'—',m:'substructures',g:'—',N:'0',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(f), p. 4 · Fig. 8(c), p. 15 · Sec. 3.2.3, p. 18`,tag:'Composite',params:[1,1,0],sections:[['几何定义',`<p>Skyrmionium 由内外两个拓扑荷相反的同心子结构组成，径向磁化经历</p><div class="formula">+z → -z → +z</div><p>因此也常被称作 2π-skyrmion。</p>`],['一眼识别',['同心环 / 靶心结构','中心与背景同向','中间反向圆环']],['拓扑要点',`<p>内外子结构的拓扑荷相反，总和为</p><div class="formula">N<sub>Sk</sub>=0</div><p>因此不宜给整个 skyrmionium 指定唯一全局 polarity。</p>`]]},
+  biskyrmion:{kind:'bisk',title:'Biskyrmion · 双核心',lead:'两个同号 skyrmion 部分重叠形成的复合纹理；典型特征是双核心与花生形主轴。',p:'same sign',m:'paired',g:'Δγ=π',N:'+2',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(e), p. 4 · Fig. 8(b), p. 15 · Sec. 3.2.2, pp. 17–18`,tag:'Composite',params:[1,1,90],sections:[['几何定义',`<p>Biskyrmion 可看成两个同号 skyrmion 的部分重叠。这里采用两个子 skyrmion 具有相同 polarity 与 vorticity，但 helicity 相差 π 的学习型示意。</p><div class="formula">N<sub>biskyrmion</sub> = (+1) + (+1) = +2,&nbsp;&nbsp; Δγ = π</div>`],['一眼识别',['主图中应看到左右两个核心','Arrow field 中两簇箭头围绕两个核心组织','Color field 中两块亮核由同一背景连接成“花生形”']],['物理要点',`<p>参考 <a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> 的 Fig. 2(e)、Fig. 8(b) 与 Sec. 3.2.2。程序右侧的 Composite construction 会同时标出两个子 skyrmion 的中心与整体几何中心，帮助把主图、箭头拆解和颜色拆解一一对应起来。</p>`]]},
+  meron:{kind:'meron',title:'Meron · 半斯格明子',lead:'“半个 skyrmion”：中心磁化指向面外，向外只旋转到面内背景，因此覆盖半个自旋球面。',p:'+1 core',m:'+1',g:'0°',N:'+1/2',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 4(c), p. 6 · Sec. 3.2.1, pp. 15–17（相关讨论）`,tag:'Meron',params:[1,1,0],sections:[['几何定义',`<p>完整 skyrmion 的径向过程可以写作</p><div class="formula">+z → 面内 → -z</div><p>meron 只完成其中一半：</p><div class="formula">±z → 面内</div>`],['一眼识别',['中心朝面外','外围背景趋于面内','不再有完整的反向面外背景']],['拓扑要点',`<div class="formula">N<sub>meron</sub> ≈ m p / 2 = ± 1/2</div>`]]},
+  bimeron:{kind:'bimeron',title:'Bimeron · 面内背景',lead:'可理解为面内磁化背景中的 skyrmion，也可视作 meron 与 antimeron 的组合。',p:'no global',m:'no global',g:'α, γ',N:'+1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(d), p. 4 · Fig. 7(c,d), p. 15 · Fig. 8(a), p. 15 · Sec. 3.2.1, pp. 15–17`,tag:'Composite',params:[1,1,0],sections:[['几何定义',`<p>Bimeron 没有单一全局 p,m,γ。论文更常用面内背景方向 α 与双核心连线方向 γ 来描述。</p><div class="formula">bimeron = meron + antimeron</div>`],['一眼识别',['面内背景','两个相反的面外核心','双瓣 / 偶极子式结构']],['物理要点',`<p>把普通 skyrmion 在自旋空间中整体旋转 90°，可以得到 bimeron 的等价几何构造；这也是程序当前交互示意采用的基本思路。</p>`]]}
+  ,afm_sk:{kind:'afm',title:'反铁磁 skyrmion · AFM',lead:'两个相互反平行、幅值相等的子晶格 skyrmion 交织在一起：净磁化局域补偿，但 Néel 序参量仍可携带非平庸拓扑。',p:'locked',m:'locked',g:'locked',N:'0 / Nn=±1',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(h), p. 4 · Fig. 6(e), p. 14 · Fig. 8(d), p. 15 · Sec. 3.2.4, pp. 18–19`,tag:'AFM',params:[1,1,0],sections:[['构型定义',`<p>反铁磁 skyrmion 可看成两个磁矩彼此反转的子 skyrmion 交织在一起。对磁化本身，两个子晶格的贡献局域与整体均可相互补偿；因此更自然的描述量是 Néel 序参量。</p><div class="formula">m<sub>B</sub>(r) = −m<sub>A</sub>(r),&nbsp;&nbsp; M(r) ≈ 0</div><div class="formula">n(r) = [m<sub>A</sub>(r) − m<sub>B</sub>(r)] / 2,&nbsp;&nbsp; N<sub>n</sub> = ±1</div>`],['一眼识别',['两个子晶格磁矩逐点反平行','磁化与其拓扑荷密度可局域补偿','用 Néel order 观察时仍呈完整 skyrmion 绕转']],['物理要点',`<p>原文 Sec. 3.2.4 指出：磁化对应的总拓扑荷补偿使反铁磁 skyrmion 不产生常规 skyrmion Hall 横向偏转；两个子系统强耦合也抑制了彼此反向横移造成的形变。理论模拟给出可达 km/s 量级的高速运动。合成反铁磁 skyrmion 已在室温多层结构中观测。</p>`],['适用范围',`<p>原文同时讨论本征两子晶格反铁磁体与 synthetic antiferromagnet。Fig. 2(h) / Fig. 6(e) 更接近合成反铁磁多层体系；而本页主图采用 <b>Néel order</b> 语言，强调两子晶格反平行与局域补偿这一共同物理核心。</p>`],['本页表示',`<p>主图现在采用 <b>A/B 子晶格分解视图</b>：两层仅用于教学上把交织的子晶格拆开观察，并不意味着本征反铁磁体具有真实层间距。A/B 箭头等长且逐点反平行；两层底色采用同一 Néel-order 颜色映射与相同显示强度；A/B 的真实反平行关系由箭头方向直接表达。右侧复合构型进一步概括 M≈0 与 Néel order 的关系。</p>`]]},
+  ferri_sk:{kind:'ferri',title:'亚铁磁 skyrmion · FiM',lead:'两个反平行子晶格形成耦合 skyrmion，但磁矩幅值不同，因此不像理想反铁磁情形那样完全补偿，仍保留可探测的净磁化。',p:'locked',m:'locked',g:'locked',N:'paired',sourceHtml:`<a href="${DOI}" target="_blank" rel="noopener">Göbel, Mertig & Tretiakov · Phys. Rep. 895 (2021)</a> · Fig. 2(g), p. 4 · Fig. 6(f), p. 14 · Sec. 3.2.5, p. 20`,tag:'FiM',params:[1,1,0],sections:[['构型定义',`<p>亚铁磁 skyrmion 与反铁磁 skyrmion 类似，也由两个磁矩方向相反的子纹理组成；关键区别在于两子晶格磁矩幅值不同，因此净磁化不完全抵消。</p><div class="formula">m<sub>B</sub>(r) ≈ −η m<sub>A</sub>(r),&nbsp;&nbsp; 0 &lt; η &lt; 1,&nbsp;&nbsp; M(r) ≠ 0</div><p>两个子 skyrmion 的拓扑贡献在论文的复合图景中取相反符号。</p>`],['一眼识别',['两个反平行子晶格，但箭头幅值不同','保留非零净磁化，因此实验探测更方便','动力学可在角动量补偿温度附近显著减小横向偏转']],['物理要点',`<p>原文 Sec. 3.2.5 以 GdFeCo 为例：X-ray imaging 已观测到 ferrimagnetic skyrmion；室温实验报告约 20° 的较小 skyrmion Hall angle。理论上在角动量补偿温度，横向 Hall 偏转可完全消失，即使磁化本身并未补偿。</p>`],['适用范围',`<p>原文 Sec. 3.2.5 的核心不是指定一种唯一 helicity，而是比较两子晶格的反平行耦合、幅值不等以及角动量补偿动力学。因此本页不把亚铁磁 skyrmion 固定为某种材料专属的 Néel / Bloch 类型。</p>`],['本页表示',`<p>主图采用 <b>A/B 双子晶格分解视图</b>：两层底色采用同一纹理方向色标，不再用颜色明暗暗示磁矩大小；A/B 的真实反平行关系由箭头方向表达，磁矩幅值差异只通过箭头长度表示。上层 A 与下层 B 逐点反平行；本页取 |m<sub>B</sub>| ≈ 0.70|m<sub>A</sub>| 作为教学示意，因此残余净磁化约为 |M<sub>net</sub>| ≈ 0.30|m<sub>A</sub>|，方向跟随主导子晶格 A。0.70 只是为了把不完全补偿画清楚，不是材料通用常数；两层间距同样只用于教学拆解。</p>`]]}
+};
+const COMP_INFO={
+  bimeron:{title:'Bimeron composition',sub:'Meron 与 antimeron 组成双核心纹理。示意图标出两个核心、核心连线与整体几何中心。'},
+  biskyrmion:{title:'Biskyrmion composition',sub:'两个同号 skyrmion 部分重叠。红 / 蓝轮廓表示两个子纹理，黑点为各自核心，橙点为整体几何中心。'},
+  skyrmionium:{title:'Skyrmionium composition',sub:'内核与外环同心嵌套，局域拓扑荷符号相反，因此整体拓扑荷相互抵消。'},
+  afm_sk:{title:'AFM sublattices',sub:'A / B 两个子晶格磁矩幅值相等、逐点反平行。净磁化补偿；Néel order 保留完整拓扑。'},
+  ferri_sk:{title:'Ferrimagnetic sublattices',sub:'A / B 逐点反平行但幅值不同；绿色 Mnet 行直接显示未被抵消的残余净磁化。0.70 / 0.30 为教学示意比例。'}
+};
+let kind='sk';
+let view={yaw:-.17,pitch:.92,zoom:1.10,panX:0,panY:6};
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function state(){return{p:+$('p').value,m:+$('m').value,g:+$('g').value*Math.PI/180,c:+$('c').value,b:+$('beta').value,q:+$('q').value,rings:+$('rings').value,L:+$('L').value}}
+function controlMeta(){
+ const d=TEXTURES[$('preset').value];
+ if(d.kind==='bisk') return {locked:true,title:'Biskyrmion：全局 p / m / γ 不开放单独调节',overlay:'该预设按复合对象处理：两个同号 skyrmion 部分重叠。由于不存在一组足够简洁且统一的全局 p、m、γ 来概括整个纹理，因此三项滑块保持锁定。',status:`<b>参数边界说明</b><p><b>biskyrmion</b> 在本页被处理为复合纹理，而非单一轴对称 skyrmion，因此不开放全局 <b>polarity p</b>、<b>vorticity m</b> 与 <b>helicity γ</b> 的直接编辑。</p><p>当前固定关系为：<b>paired p = same sign</b>、<b>subtextures = 2 × sk</b>、<b>Δγ = π</b>。你仍可继续调节 <b>视角</b> 与 <b>高级渲染参数</b>（c、β、q、环数、L）。</p>`};
+ if(d.kind==='bimeron') return {locked:true,title:'Bimeron：全局 p / m / γ 不开放单独调节',overlay:'Bimeron 不对应一组简单的全局 p、m、γ。这里采用复合对象示意，因此三项滑块保持锁定；你仍可调节视角与高级渲染参数。',status:`<b>参数边界说明</b><p><b>bimeron</b> 更适合用 <b>面内背景方向</b> 与 <b>双核心的几何关系</b> 来描述，而不是单一全局 p / m / γ，因此本页不开放这三项参数的直接编辑。</p><p>当前采用的学习型固定设置为：<b>面内背景</b> + <b>两个相反的面外核心</b>。右侧信息栏会用 <b>background / cores / α, γ</b> 来概括这一预设。</p>`};
+ if(d.kind==='ium') return {locked:true,title:'Skyrmionium：全局 p / m / γ 不开放单独调节',overlay:'Skyrmionium 由内外两个反号同心子结构组成，总拓扑荷为 0。单一全局 polarity 与 helicity 并不能完整刻画整个纹理，因此基础三项滑块保持锁定。',status:`<b>参数边界说明</b><p><b>skyrmionium</b> 是同心复合纹理，径向磁化经历 <b>+z → −z → +z</b>。内外子结构的拓扑荷相互抵消，因此总 <b>N<sub>Sk</sub> = 0</b>。</p><p>本页不开放单一全局 p / m / γ 编辑；你仍可调节 <b>视角</b> 与高级渲染参数。</p>`};
+ if(d.kind==='afm') return {locked:true,title:'反铁磁 skyrmion：基础参数采用文献对照表示',overlay:'本预设直接显示 A/B 两个等幅反平行子晶格。两层是教学分解视图，用于把局域补偿画出来；基础 p、m、γ 固定。',status:`<b>参数边界说明</b><p>反铁磁 skyrmion 需要同时描述两个子晶格。主图采用 <b>A/B 子晶格分解视图</b>，两套等长箭头逐点反平行；底部 p / m / γ 仅是绘图内部参考参数，因此锁定。</p><p>仍可调节 <b>视角</b> 与 <b>高级渲染参数</b>，不会改变 A/B 子晶格反平行这一物理约束。</p>`};
+ if(d.kind==='ferri') return {locked:true,title:'亚铁磁 skyrmion：基础参数采用双子晶格表示',overlay:'本预设采用 A/B 双子晶格分解视图：两套纹理逐点反平行，B 的箭头更短以表示较小磁矩；颜色不编码磁矩幅值。基础 p、m、γ 固定。',status:`<b>参数边界说明</b><p>亚铁磁 skyrmion 的关键自由度是 <b>两个子晶格的反平行耦合与不等磁矩</b>，而不是单一全局 p / m / γ。</p><p>本页取 η = 0.70 作为 <b>教学可视化比例</b>，用于直观表现不完全补偿，并非某种材料的通用常数。仍可调节 <b>视角</b> 与 <b>高级渲染参数</b>。</p>`};
+ if(d.kind==='anti') return {locked:false,title:'Antiskyrmion：p、m 与取向角 χ 可调',overlay:'',status:`<b>参数边界说明</b><p>Antiskyrmion 的 <b>polarity p</b> 与 <b>vorticity m</b> 可以直接调节。第三项在这里不是普通圆对称 skyrmion 的 helicity，而是 <b>纹理取向角 χ</b>。</p><p>改变 χ 只旋转各向异性主轴；不会改变 antiskyrmion 的基本纹理家族。</p>`};
+ return {locked:false,title:'当前预设允许直接调节 p / m / γ',overlay:'',status:`<b>参数边界说明</b><p>当前预设允许直接调节 <b>polarity p</b>、<b>vorticity m</b> 与 <b>helicity γ</b>。点击“恢复预设”会把这些物理参数连同高级渲染参数一起恢复到默认论文示意值。</p><p><b>高级渲染选项</b> 仅影响可视化外观、箭头采样与盘面过渡，不改变纹理所属的物理家族。</p>`};
+}
+function syncControlLock(){
+ const meta=controlMeta();
+ $('sliderLock').hidden=!meta.locked;
+ $('sliderLockWrap').classList.toggle('isLocked', meta.locked);
+ $('sliderLockTitle').textContent=meta.title;
+ $('sliderLockText').textContent=meta.overlay;
+ $('controlStatus').innerHTML=meta.status; $('controlStatus').hidden=!(meta.locked || kind==='anti');
+ ['p','m','g'].forEach(id=>$(id).disabled=meta.locked);
+ if(kind==='anti'){
+   $('controlLabelP').textContent='Polarity p'; $('controlLabelP').dataset.term='polarity';
+   $('controlLabelM').textContent='Vorticity m'; $('controlLabelM').dataset.term='vorticity';
+   $('controlLabelG').textContent='Orientation χ'; $('controlLabelG').dataset.term='orientation';
+ } else if(kind==='meron'){
+   $('controlLabelP').textContent='Core polarity p'; $('controlLabelP').dataset.term='polarity';
+   $('controlLabelM').textContent='Vorticity m'; $('controlLabelM').dataset.term='vorticity';
+   $('controlLabelG').textContent='Helicity γ'; $('controlLabelG').dataset.term='helicity';
+ } else {
+   $('controlLabelP').textContent='Polarity p'; $('controlLabelP').dataset.term='polarity';
+   $('controlLabelM').textContent='Vorticity m'; $('controlLabelM').dataset.term='vorticity';
+   $('controlLabelG').textContent='Helicity γ'; $('controlLabelG').dataset.term='helicity';
+ }
+}
+function smoothstep(a,b,x){const t=clamp((x-a)/(b-a),0,1);return t*t*(3-2*t)}
+function thetaNorm(t,s,profileKind){
+ if(profileKind==='meron') return .5*Math.PI*smoothstep(0,s.c+(1-s.c)*.96,t);
+ if(profileKind==='ium'){if(t<.42)return Math.PI*smoothstep(.04,.42,t);return Math.PI*(1-smoothstep(.42,.86,t));}
+ if(t<=s.c)return .5*Math.PI*Math.pow(t/s.c,1.08);
+ if(t>=s.b)return Math.PI;
+ return .5*Math.PI+.5*Math.PI*Math.pow((t-s.c)/(s.b-s.c),s.q);
+}
+function spinFrom(theta,phase,p){const mx=Math.sin(theta)*Math.cos(phase),my=Math.sin(theta)*Math.sin(phase),mz=p*Math.cos(theta);const n=Math.hypot(mx,my,mz)||1;return[mx/n,my/n,mz/n]}
+function rotateY(v,a){const c=Math.cos(a),s=Math.sin(a);return[c*v[0]+s*v[2],v[1],-s*v[0]+c*v[2]]}
+function localSkField(x,y,cx,cy,p,m,g,s,R=.48,profile='sk'){const dx=(x-cx)/R,dy=(y-cy)/R,r=Math.hypot(dx,dy),ph=Math.atan2(dy,dx);const th=thetaNorm(clamp(r,0,1),s,profile);return{v:spinFrom(th,m*ph+g,p),r}}
+function baseSkField(x,y,s){const r=Math.hypot(x,y),ph=Math.atan2(y,x),th=thetaNorm(clamp(r,0,1),s,'sk');return spinFrom(th,s.m*ph+s.g,s.p)}
+function field(x,y,s){
+ const r=Math.hypot(x,y),ph=Math.atan2(y,x);
+ if(kind==='bisk'){
+   const d=.32, R=.50;
+   const f1=localSkField(x,y,-d,0,1,1, Math.PI/2,s,R,'sk');
+   const f2=localSkField(x,y, d,0,1,1,-Math.PI/2,s,R,'sk');
+   const w1=Math.exp(-3.7*f1.r*f1.r), w2=Math.exp(-3.7*f2.r*f2.r);
+   const bridge=Math.exp(-11.5*(x*x+1.8*y*y));
+   let vx=1.48*(f1.v[0]*w1 + f2.v[0]*w2);
+   let vy=1.22*(f1.v[1]*w1 + f2.v[1]*w2);
+   let vz=-0.32 + 1.32*(f1.v[2]*w1 + f2.v[2]*w2) - 0.05*bridge;
+   const n=Math.hypot(vx,vy,vz)||1; return[vx/n,vy/n,vz/n];
+ }
+ let th=thetaNorm(clamp(r,0,1),s, kind==='meron'?'meron':kind==='ium'?'ium':'sk');
+ let sp=s.m*ph+s.g; let v=(kind==='afm'||kind==='ferri')?baseSkField(x,y,s):spinFrom(th,sp,s.p);
+ if(kind==='bimeron') v=rotateY(v,-Math.PI/2);
+ if(kind==='anti'){
+   const aniso=0.35*Math.cos(2*ph); // mild anisotropy to echo paper style
+   v=spinFrom(th, -ph + aniso + s.g, s.p);
+ }
+ return v;
+}
+function hslToRgb(h,s,l){let r,g,b;if(!s){r=g=b=l}else{const f=(p,q,t)=>{if(t<0)t++;if(t>1)t--;if(t<1/6)return p+(q-p)*6*t;if(t<1/2)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p},q=l<.5?l*(1+s):l+s-l*s,p=2*l-q;r=f(p,q,h+1/3);g=f(p,q,h);b=f(p,q,h-1/3)}return[Math.round(r*255),Math.round(g*255),Math.round(b*255)]}
+function hueBase(v){let h=(Math.atan2(v[1],v[0])/(2*Math.PI)+1)%1;return hslToRgb(h,.95,.58)}
+function arrowColor(v){const base=hueBase(v),mz=v[2];if(mz>.02){const t=Math.pow(1-mz,.72);return base.map(q=>Math.round(q*t+255*(1-t)));}if(mz<-.02){let t=Math.pow(1+Math.max(-1,mz),.58); if(kind==='ium') t=.18+.82*t; if(kind==='bisk') t=.42+.58*t; return base.map(q=>Math.round(q*t));}return base}
+function surfaceColor(v){const base=hueBase(v),mz=v[2];if(mz>.02){const t=Math.pow(1-mz,.85);return base.map(q=>Math.round(q*t+250*(1-t)));}if(mz<-.02){let t=Math.pow(1+Math.max(-1,mz),.70); if(kind==='ium') t=.16+.84*t; if(kind==='bisk') t=.38+.62*t; return base.map(q=>Math.round(q*t));}return base}
+function rot(x,y,z,ya,pi){const cy=Math.cos(ya),sy=Math.sin(ya),cp=Math.cos(pi),sp=Math.sin(pi),x1=cy*x+sy*z,z1=-sy*x+cy*z,y1=cp*y-sp*z1,z2=sp*y+cp*z1;return[x1,y1,z2]}
+function basis(W,H,scale=1,ox=0,oy=0){const S=Math.min(W,H)*.52*view.zoom*scale;return{W,H,S,ox,oy}}
+function proj(x,y,z,b){const u=rot(x,y,z,view.yaw,view.pitch);return[b.W/2+u[0]*b.S+view.panX+(b.ox||0),b.H/2+u[1]*b.S+view.panY+(b.oy||0),u[2]]}
+function setup(c){const r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;c.width=Math.max(10,Math.round(r.width*d));c.height=Math.max(10,Math.round(r.height*d));const x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);x.clearRect(0,0,r.width,r.height);return{x,W:r.width,H:r.height}}
+function path(ctx,pts){ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);ctx.closePath()}
+function drawDisc(ctx,b,s,flat=false){
+ const nr=68,na=220,cells=[];
+ for(let ir=0;ir<nr;ir++){
+   const r0=ir/nr,r1=(ir+1)/nr;
+   for(let ia=0;ia<na;ia++){
+     const a0=ia/na*2*Math.PI,a1=(ia+1)/na*2*Math.PI;
+     const p00=proj(r0*Math.cos(a0),r0*Math.sin(a0),0,b),p01=proj(r0*Math.cos(a1),r0*Math.sin(a1),0,b),p11=proj(r1*Math.cos(a1),r1*Math.sin(a1),0,b),p10=proj(r1*Math.cos(a0),r1*Math.sin(a0),0,b),rc=(r0+r1)/2,ac=(a0+a1)/2,v=field(rc*Math.cos(ac),rc*Math.sin(ac),s);cells.push({p:[p00,p01,p11,p10],c:surfaceColor(v),z:(p00[2]+p01[2]+p10[2]+p11[2])/4})
+   }
+ }
+ const top=[],bottom=[];for(let i=0;i<220;i++){const a=i/220*2*Math.PI;top.push(proj(Math.cos(a),Math.sin(a),0,b));bottom.push(proj(1.004*Math.cos(a),1.004*Math.sin(a),-.028,b))}
+ if(!flat){path(ctx,bottom);ctx.fillStyle='#8f9399';ctx.fill();}
+ cells.sort((a,b)=>a.z-b.z);for(const e of cells){path(ctx,e.p);ctx.fillStyle=`rgb(${e.c})`;ctx.fill()}
+ path(ctx,top);ctx.lineWidth=flat?1.4:2.3;ctx.strokeStyle=flat?'#828894':'#646972';ctx.stroke();
+}
+function samplePoints(s){const out=[];const max=s.rings;for(let k=0;k<=max;k++){const r=k/max;let n;if(k===0)n=1;else n=Math.max(6,Math.round(4+2.5*k));const off=(k%2)*Math.PI/n;for(let j=0;j<n;j++)out.push({r:r*.972,a:off+2*Math.PI*j/n})}return out}
+function drawArrow(ctx,b,P,v,color,mode='full',momentScale=1,alpha=1){
+ ctx.save();ctx.globalAlpha*=alpha;
+ const s=state(),dir=v,isSil=mode==='sil';
+ const L=s.L*(.76+.26*P.r)*(isSil?.92:1.0)*momentScale,contact=[P.x,P.y,P.z+.002],lift=isSil?.016:.022;
+ let tail,tip;
+ if(dir[2]<0){tip=[contact[0],contact[1],contact[2]+lift];tail=[contact[0]-dir[0]*L,contact[1]-dir[1]*L,contact[2]-dir[2]*L+lift];}
+ else{tail=[contact[0],contact[1],contact[2]+lift];tip=[contact[0]+dir[0]*L,contact[1]+dir[1]*L,contact[2]+dir[2]*L+lift];}
+ const p0=proj(...tail,b),p1=proj(...tip,b),dx=p1[0]-p0[0],dy=p1[1]-p0[1],len=Math.hypot(dx,dy);if(len<.8)return;
+ const ux=dx/len,uy=dy/len,nx=-uy,ny=ux,densityScale=Math.sqrt(8/Math.max(5,s.rings));
+ const shaft=Math.max(isSil?1.35:1.75,(isSil?2.4:3.0)*view.zoom*densityScale),headLen=Math.max(isSil?4.8:5.4,Math.min((isSil?10.2:11.8)*view.zoom,len*.34)),headW=headLen*(isSil?.36:.40),hb=[p1[0]-ux*headLen,p1[1]-uy*headLen];
+ const shape=()=>{ctx.beginPath();ctx.moveTo(p0[0]+nx*shaft*.48,p0[1]+ny*shaft*.48);ctx.lineTo(hb[0]+nx*shaft*.48,hb[1]+ny*shaft*.48);ctx.lineTo(hb[0]+nx*headW,hb[1]+ny*headW);ctx.lineTo(p1[0],p1[1]);ctx.lineTo(hb[0]-nx*headW,hb[1]-ny*headW);ctx.lineTo(hb[0]-nx*shaft*.48,hb[1]-ny*shaft*.48);ctx.lineTo(p0[0]-nx*shaft*.48,p0[1]-ny*shaft*.48);ctx.closePath()};
+ if(isSil){shape();ctx.fillStyle='#040404';ctx.fill()}else{const dark=color.map(q=>Math.round(q*.58));const grad=ctx.createLinearGradient(p0[0],p0[1],p1[0],p1[1]);grad.addColorStop(0,`rgb(${color})`);grad.addColorStop(1,`rgb(${dark})`);shape();ctx.fillStyle=grad;ctx.fill();ctx.strokeStyle=`rgba(${dark},.28)`;ctx.lineWidth=.45;ctx.stroke()}
+ ctx.beginPath();ctx.arc(p0[0],p0[1],shaft*.40,0,2*Math.PI);ctx.fillStyle=isSil?'#040404':`rgb(${color})`;ctx.fill();
+ ctx.restore();
+}
+function invertV(v){return[-v[0],-v[1],-v[2]]}
+function subV(x,y,s,which){const a=baseSkField(x,y,s);return which==='A'?a:invertV(a)}
+function drawDiscField(ctx,b,s,which,z0=0,radius=.91,alpha=1,flat=false,colorWhich=which){
+ const nr=42,na=150,cells=[];ctx.save();ctx.globalAlpha*=alpha;
+ for(let ir=0;ir<nr;ir++){const r0=ir/nr*radius,r1=(ir+1)/nr*radius;for(let ia=0;ia<na;ia++){const a0=ia/na*2*Math.PI,a1=(ia+1)/na*2*Math.PI;
+   const p00=proj(r0*Math.cos(a0),r0*Math.sin(a0),z0,b),p01=proj(r0*Math.cos(a1),r0*Math.sin(a1),z0,b),p11=proj(r1*Math.cos(a1),r1*Math.sin(a1),z0,b),p10=proj(r1*Math.cos(a0),r1*Math.sin(a0),z0,b),rc=(r0+r1)/2,ac=(a0+a1)/2,v=subV(rc*Math.cos(ac),rc*Math.sin(ac),s,colorWhich);cells.push({p:[p00,p01,p11,p10],c:surfaceColor(v),z:(p00[2]+p01[2]+p10[2]+p11[2])/4})}}
+ cells.sort((a,b)=>a.z-b.z);for(const e of cells){path(ctx,e.p);ctx.fillStyle=`rgb(${e.c})`;ctx.fill()}
+ const edge=[];for(let i=0;i<180;i++){const a=i/180*2*Math.PI;edge.push(proj(radius*Math.cos(a),radius*Math.sin(a),z0,b))}path(ctx,edge);ctx.lineWidth=flat?1.1:1.8;ctx.strokeStyle='rgba(82,89,101,.82)';ctx.stroke();ctx.restore();
+}
+function drawSublatticeArrows(ctx,b,s,which,z0=0,momentScale=1,alpha=1,mini=false){
+ const ss={...s,rings:mini?6:s.rings};const pts=samplePoints(ss).map(p=>{const P={x:p.r*.91*Math.cos(p.a),y:p.r*.91*Math.sin(p.a),z:z0,r:p.r};const v=subV(P.x,P.y,s,which);return{P,v,c:arrowColor(v),z:proj(P.x,P.y,z0+.035,b)[2]}}).sort((a,b)=>a.z-b.z);
+ for(const e of pts){const outer=e.P.r>.965&&e.v[2]<-.8;drawArrow(ctx,b,e.P,e.v,e.c,outer?'sil':'full',momentScale,alpha)}
+}
+function canvasTag(ctx,x,y,label,color='#2563eb',sub=''){
+ ctx.save();ctx.font='700 12px "Avenir Next","PingFang SC",sans-serif';const w=Math.max(54,ctx.measureText(label).width+22);ctx.fillStyle='rgba(255,255,255,.92)';ctx.strokeStyle='rgba(201,210,225,.95)';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(x,y,w,27,13);ctx.fill();ctx.stroke();ctx.fillStyle=color;ctx.fillText(label,x+11,y+18);if(sub){ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillStyle='#687080';ctx.fillText(sub,x+w+8,y+18)}ctx.restore();
+}
+function renderSublatticeMain(ctx,W,H,s,b,isAF){
+ const zA=isAF?.23:.16,zB=isAF?-.23:-.16,eta=isAF?1:.70;
+ const discAlpha=isAF?.96:.90,arrowAlpha=isAF?.98:.92;
+ drawDiscField(ctx,b,s,'B',zB,.89,discAlpha,false,'A');drawSublatticeArrows(ctx,b,s,'B',zB,eta,arrowAlpha,false);
+ drawDiscField(ctx,b,s,'A',zA,.89,discAlpha,false);drawSublatticeArrows(ctx,b,s,'A',zA,1,.98,false);
+ canvasTag(ctx,16,16,'A','#2563eb',isAF?'|mA| = 1':'主子晶格 · |mA| = 1');
+ canvasTag(ctx,16,50,'B','#dc2626',isAF?'|mB| = 1 · 与 A 逐点反平行':'|mB| ≈ 0.70|mA| · 与 A 逐点反平行');
+ ctx.save();ctx.fillStyle='rgba(30,41,59,.78)';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText(isAF?'教学分解视图：上下两层拉开显示，A/B 等幅反平行':'教学分解视图：A/B 反平行但幅值不等，保留非零净磁化',18,H-18);ctx.restore();
+}
+function drawNetMagBadge(ctx,W,H,eta=.70){
+ const residual=Math.max(0,1-eta),x=W-228,y=18,w=208,h=58;
+ ctx.save();ctx.fillStyle='rgba(248,252,250,.97)';ctx.strokeStyle='rgba(114,168,137,.72)';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(x,y,w,h,14);ctx.fill();ctx.stroke();
+ ctx.fillStyle='#17633a';ctx.font='700 11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText('残余净磁化 · Mnet = mA + mB',x+12,y+20);
+ ctx.fillStyle='#52675a';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText(`示意：|Mnet| ≈ ${residual.toFixed(2)} |mA|`,x+12,y+40);
+ const x0=x+w-34,y0=y+40,L=22;ctx.strokeStyle='#16a34a';ctx.fillStyle='#16a34a';ctx.lineWidth=2.2;ctx.beginPath();ctx.moveTo(x0-L,y0);ctx.lineTo(x0,y0);ctx.stroke();ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0-7,y0-4);ctx.lineTo(x0-7,y0+4);ctx.closePath();ctx.fill();ctx.restore();
+}
+function renderFerriMain(ctx,W,H,s,b){
+ const zA=.20,zB=-.20,eta=.70;
+ drawDiscField(ctx,b,s,'B',zB,.89,.96,false,'A');
+ drawSublatticeArrows(ctx,b,s,'B',zB,eta,.98,false);
+ drawDiscField(ctx,b,s,'A',zA,.89,.96,false);
+ drawSublatticeArrows(ctx,b,s,'A',zA,1,.98,false);
+ canvasTag(ctx,16,16,'A','#2563eb','主子晶格 · |mA| = 1.00');
+ canvasTag(ctx,16,50,'B','#dc2626','次子晶格 · |mB| ≈ 0.70 · 逐点反平行');
+ drawNetMagBadge(ctx,W,H,eta);
+ ctx.save();ctx.fillStyle='rgba(30,41,59,.78)';ctx.font='11px "Avenir Next","PingFang SC",sans-serif';ctx.fillText('教学分解：统一色标；A/B 反平行且不等长，残余 Mnet 沿主导子晶格方向',18,H-18);ctx.restore();
+}
+function renderSublatticeSplit(ctx,W,H,s,isAF,mode){
+ const bA=basis(W,H,.60,-W*.23,7),bB=basis(W,H,.60,W*.23,7),eta=isAF?1:.70;
+ if(mode==='color'){drawDiscField(ctx,bA,s,'A',0,.88,.96,true,'A');drawDiscField(ctx,bB,s,'B',0,.88,.96,true,'A')}
+ else{drawSublatticeArrows(ctx,bA,s,'A',0,1,.98,true);drawSublatticeArrows(ctx,bB,s,'B',0,eta,.98,true)}
+ canvasTag(ctx,10,10,'A','#2563eb');canvasTag(ctx,W/2+6,10,'B','#dc2626',isAF?'等幅反向':'反向 · 0.70×');
+}
+function items(s,b){return samplePoints(s).map(p=>{const P={x:p.r*Math.cos(p.a),y:p.r*Math.sin(p.a),z:.0,r:p.r},v=field(P.x,P.y,s);return{P,v,c:arrowColor(v),z:proj(P.x,P.y,.035,b)[2]}}).sort((a,b)=>a.z-b.z)}
+function compositeGuides(){
+ if(kind==='bisk') return {cores:[[-.32,0,'#ef4444','1'],[.32,0,'#3b82f6','2']],center:[0,0,'#f59e0b']};
+ if(kind==='bimeron') return {cores:[[-.22,0,'#3b82f6','m'],[.22,0,'#ef4444','a']],center:[0,0,'#f59e0b']};
+ return null;
+}
+function drawGuides(ctx,b,variant='main'){
+ const meta=compositeGuides(); if(!meta) return; ctx.save();
+ const [c1,c2]=meta.cores; const p1=proj(c1[0],c1[1],.042,b), p2=proj(c2[0],c2[1],.042,b), pm=proj(meta.center[0],meta.center[1],.045,b);
+ ctx.setLineDash([5,4]); ctx.strokeStyle='rgba(110,126,170,.7)'; ctx.lineWidth=1.1; ctx.beginPath(); ctx.moveTo(p1[0],p1[1]); ctx.lineTo(p2[0],p2[1]); ctx.stroke(); ctx.setLineDash([]);
+ for(const [px,py,color,label] of [[p1[0],p1[1],c1[2],c1[3]],[p2[0],p2[1],c2[2],c2[3]]]){
+   ctx.beginPath(); ctx.arc(px,py,variant==='main'?6.4:5.4,0,2*Math.PI); ctx.fillStyle='rgba(255,255,255,.92)'; ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle=color; ctx.stroke();
+   if(variant!=='main'){ctx.fillStyle='#2e3440'; ctx.font='11px Avenir Next, Inter, sans-serif'; ctx.fillText(label,px+7,py-7)}
+ }
+ ctx.beginPath(); ctx.arc(pm[0],pm[1],variant==='main'?4.4:3.8,0,2*Math.PI); ctx.fillStyle='#f59e0b'; ctx.fill(); ctx.lineWidth=1.2; ctx.strokeStyle='rgba(255,255,255,.95)'; ctx.stroke();
+ ctx.restore();
+}
+function renderMain(){const{x,W,H}=setup(C.main),s=state(),b=basis(W,H,.72);if(kind==='afm'){renderSublatticeMain(x,W,H,s,b,true);return;}if(kind==='ferri'){renderFerriMain(x,W,H,s,b);return;}drawDisc(x,b,s,false);const familyScale=(kind==='meron')?.78:(kind==='bimeron')?.82:(kind==='ium')?.90:1;for(const e of items(s,b)){const outer=e.P.r>.967&&e.v[2]<-.8;drawArrow(x,b,e.P,e.v,e.c,outer?'sil':'full',familyScale)}if(kind==='bisk'||kind==='bimeron'){drawGuides(x,b,'main')}else{const cen=proj(0,0,.02,b);x.beginPath();x.arc(cen[0],cen[1],Math.max(3.2,4.8*view.zoom),0,2*Math.PI);const rg=x.createRadialGradient(cen[0]-2,cen[1]-2,1,cen[0],cen[1],6);rg.addColorStop(0,'#ff8a77');rg.addColorStop(1,'#cb3030');x.fillStyle=rg;x.fill();}}
+function renderArrows(){const{x,W,H}=setup(C.arrow),s=state();if(kind==='afm'||kind==='ferri'){renderSublatticeSplit(x,W,H,s,kind==='afm','arrows');return;}const b=basis(W,H,.78),familyScale=(kind==='meron')?.82:(kind==='bimeron')?.84:(kind==='ium')?.92:1;for(const e of items(s,b)){const outer=e.P.r>.967&&e.v[2]<-.8;drawArrow(x,b,e.P,e.v,e.c,outer?'sil':'full',familyScale)}drawGuides(x,b,'split')}
+function renderColor(){const{x,W,H}=setup(C.color),s=state();if(kind==='afm'||kind==='ferri'){renderSublatticeSplit(x,W,H,s,kind==='afm','color');return;}const b=basis(W,H,.78);drawDisc(x,b,s,true);drawGuides(x,b,'split')}
+function currentCharge(s){if(kind==='ium'||kind==='afm'||kind==='ferri')return 0;if(kind==='meron')return s.p*s.m/2;if(kind==='bimeron')return s.p; if(kind==='bisk') return 2*Math.sign(s.p||1); return s.p*s.m}
+function renderComposite(){
+ const box=$('compositeBox'); const key=$('preset').value; const ctx=C.comp.getContext('2d'); ctx.clearRect(0,0,C.comp.width,C.comp.height);
+ if(!(key in COMP_INFO)){box.hidden=true; return;} box.hidden=false; $('compositeSub').textContent=COMP_INFO[key].sub; ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,C.comp.width,C.comp.height); ctx.strokeStyle='#d8dde5'; ctx.lineWidth=1; ctx.strokeRect(.5,.5,C.comp.width-1,C.comp.height-1);
+ const midx=C.comp.width/2, midy=C.comp.height/2;
+ if(key==='bimeron'){
+   ctx.setLineDash([6,4]); ctx.strokeStyle='#7a8fd8'; ctx.beginPath(); ctx.moveTo(72,midy); ctx.lineTo(248,midy); ctx.stroke(); ctx.setLineDash([]);
+   for(const [x,color,label,core] of [[102,'#3b82f6','meron','+z'],[218,'#ef4444','antimeron','−z']]){ctx.beginPath(); ctx.arc(x,midy,36,0,2*Math.PI); ctx.fillStyle='rgba(96,165,250,.12)'; ctx.fill(); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke(); ctx.beginPath(); ctx.arc(x,midy,4,0,2*Math.PI); ctx.fillStyle='#111'; ctx.fill(); ctx.fillStyle='#1f2937'; ctx.font='12px sans-serif'; ctx.fillText(label,x-24,36); ctx.fillStyle=color; ctx.fillText(core,x-9,midy+5);} ctx.beginPath(); ctx.arc(midx,midy,4,0,2*Math.PI); ctx.fillStyle='#f59e0b'; ctx.fill(); ctx.fillStyle='#374151'; ctx.fillText('整体中心',midx-24,130);
+ }
+ if(key==='biskyrmion'){
+   ctx.setLineDash([6,4]); ctx.strokeStyle='#f59e0b'; ctx.beginPath(); ctx.moveTo(midx,28); ctx.lineTo(midx,132); ctx.stroke(); ctx.setLineDash([]);
+   for(const [x,color,label] of [[126,'#ef4444','skyrmion 1'],[194,'#2563eb','skyrmion 2']]){ctx.beginPath(); ctx.arc(x,midy,42,0,2*Math.PI); ctx.fillStyle='rgba(244,114,182,.10)'; ctx.fill(); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke(); ctx.beginPath(); ctx.arc(x,midy,4,0,2*Math.PI); ctx.fillStyle='#111'; ctx.fill(); ctx.fillStyle='#374151'; ctx.font='12px sans-serif'; ctx.fillText(label,x-30,34);} ctx.beginPath(); ctx.arc(midx,midy,4,0,2*Math.PI); ctx.fillStyle='#f59e0b'; ctx.fill(); ctx.fillStyle='#374151'; ctx.fillText('整体中心',midx-24,130);
+ }
+ if(key==='skyrmionium'){
+   ctx.beginPath(); ctx.arc(midx,midy,54,0,2*Math.PI); ctx.strokeStyle='#a855f7'; ctx.lineWidth=12; ctx.stroke(); ctx.beginPath(); ctx.arc(midx,midy,22,0,2*Math.PI); ctx.fillStyle='#ef4444'; ctx.fill(); ctx.beginPath(); ctx.arc(midx,midy,4,0,2*Math.PI); ctx.fillStyle='#111'; ctx.fill(); ctx.fillStyle='#374151'; ctx.font='12px sans-serif'; ctx.fillText('inner skyrmion (+1)',midx-56,34); ctx.fillText('outer skyrmion (−1)',midx-58,132);
+ }
+ if(key==='afm_sk' || key==='ferri_sk'){
+   const isAF=key==='afm_sk', cx=160, yA=isAF?58:48, yB=isAF?108:86, yM=126;
+   ctx.font='12px "PingFang SC",sans-serif'; ctx.textAlign='center';
+   ctx.fillStyle='#1f2937'; ctx.fillText(isAF?'子晶格 A / B：等幅反平行':'A / B 子晶格与残余净磁化',cx,22);
+   const drawRow=(y,label,sgn,scale,color)=>{
+     ctx.fillStyle='#5b6577';ctx.textAlign='left';ctx.fillText(label,24,y+4);
+     for(let i=-4;i<=4;i++){
+       const x=cx+i*22, ang=(i/4)*.72, len=18*scale, dx=Math.sin(ang)*len, dy=-Math.cos(ang)*len*sgn;
+       ctx.strokeStyle=color;ctx.fillStyle=color;ctx.lineWidth=Math.max(1.15,2.2*scale);ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+dx,y+dy);ctx.stroke();
+       const a=Math.atan2(dy,dx),hx=x+dx,hy=y+dy,hs=Math.max(.55,scale);ctx.beginPath();ctx.moveTo(hx,hy);ctx.lineTo(hx-6*hs*Math.cos(a-.55),hy-6*hs*Math.sin(a-.55));ctx.lineTo(hx-6*hs*Math.cos(a+.55),hy-6*hs*Math.sin(a+.55));ctx.closePath();ctx.fill();
+     }
+   };
+   drawRow(yA,'A',1,1,'#2563eb'); drawRow(yB,'B',-1,isAF?1:.70,'#ef4444');
+   if(!isAF){drawRow(yM,'Mnet',1,.30,'#16a34a');ctx.textAlign='right';ctx.fillStyle='#17633a';ctx.font='10px "PingFang SC",sans-serif';ctx.fillText('0.30× · 示意',296,148)}
+   else{ctx.textAlign='center';ctx.font='11px "PingFang SC",sans-serif';ctx.fillStyle='#4b5563';ctx.fillText('|mA| = |mB|  →  Mnet ≈ 0',cx,148);}
+ }
+ }
+function formatCharge(n){
+ if(Math.abs(n)<1e-9)return '0';
+ if(Math.abs(Math.abs(n)-.5)<1e-9)return (n>0?'+':'−')+'1/2';
+ if(Math.abs(n-Math.round(n))<1e-9)return (n>0?'+':'−')+Math.abs(Math.round(n));
+ return (n>0?'+':'−')+Math.abs(n).toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+}
+function renderInfo(){
+ const d=TEXTURES[$('preset').value],s=state();
+ const n=currentCharge(s),nText=formatCharge(n);
+ const defaultShape=(Math.abs(s.c-DEFAULTS.c)<.001&&Math.abs(s.b-DEFAULTS.beta)<.001&&Math.abs(s.q-DEFAULTS.q)<.001&&s.rings===DEFAULTS.rings&&Math.abs(s.L-DEFAULTS.L)<.001);
+ const isCustom=(s.p!==d.params[0]||s.m!==d.params[1]||Math.round(s.g*180/Math.PI)!==d.params[2]||!defaultShape);
+ $('labelP').dataset.term='polarity';$('labelM').dataset.term='vorticity';$('labelG').dataset.term='helicity';$('labelN').dataset.term='topology';
+ $('infoTitle').textContent=d.title+(isCustom?' · 自定义':''); $('chargeBadge').innerHTML='N = '+nText; $('infoLead').textContent=d.lead; $('infoSource').innerHTML=d.sourceHtml; $('infoTag').textContent=d.tag; $('mainChip').textContent=(kind==='afm')?'AFM · A/B 子晶格':(kind==='ferri')?'FiM · A/B 子晶格':d.title; $('infoN').textContent=nText;
+ if(kind==='afm'){$('chargeBadge').innerHTML='ΣN<sub>M</sub>=0';$('labelP').textContent='子晶格';$('labelM').textContent='局域关系';$('labelG').textContent='净磁化';$('labelN').textContent='Néel 拓扑';$('infoP').textContent='A + B';$('infoM').textContent='反平行';$('infoG').textContent='M ≈ 0';$('infoN').textContent='Nₙ = ±1';$('labelP').dataset.term='sublattice';$('labelM').dataset.term='sublattice';$('labelG').dataset.term='compensation';$('labelN').dataset.term='neelorder';}
+ else if(kind==='ferri'){$('chargeBadge').innerHTML='N<sub>A</sub>+N<sub>B</sub>=0';$('labelP').textContent='子晶格';$('labelM').textContent='局域关系';$('labelG').textContent='净磁化';$('labelN').textContent='子纹理拓扑';$('infoP').textContent='A + B';$('infoM').textContent='反平行';$('infoG').textContent='M ≠ 0';$('infoN').textContent='+1 / −1';$('labelP').dataset.term='sublattice';$('labelM').dataset.term='sublattice';$('labelG').dataset.term='compensation';$('labelN').dataset.term='topology';}
+ else if(kind==='bimeron'){$('labelP').textContent='面内背景';$('labelM').textContent='核心';$('labelG').textContent='固定描述量';$('infoP').textContent='面内';$('infoM').textContent='±z';$('infoG').textContent='α, γ';}
+ else if(kind==='ium'){$('labelP').textContent='径向剖面';$('labelM').textContent='子纹理';$('labelG').textContent='全局 p';$('labelN').textContent='拓扑荷 N';$('infoP').textContent='+z→−z→+z';$('infoM').textContent='内层 + 外环';$('infoG').textContent='无唯一值';$('infoN').textContent='0';}
+ else if(kind==='meron'){$('labelP').textContent='核心极性 p';$('labelM').textContent='涡度 m';$('labelG').textContent='背景';$('labelN').textContent='拓扑荷 N';$('infoP').textContent=s.p>0?'+1':'−1';$('infoM').textContent=(s.m>0?'+':'')+s.m;$('infoG').textContent='面内';$('infoN').textContent=nText;}
+ else if(kind==='bisk'){$('labelP').textContent='子纹理极性';$('labelM').textContent='子纹理';$('labelG').textContent='固定 Δγ';$('labelN').textContent='拓扑荷 N';$('infoP').textContent='同号';$('infoM').textContent='2 × skyrmion';$('infoG').textContent='Δγ = π';$('infoN').textContent=nText;}
+ else if(kind==='anti'){$('labelP').textContent='极性 p';$('labelM').textContent='涡度 m';$('labelG').textContent='取向 χ';$('labelN').textContent='拓扑荷 N';$('infoP').textContent=s.p>0?'+1':'−1';$('infoM').textContent=(s.m>0?'+':'')+s.m;$('infoG').textContent=Math.round(s.g*180/Math.PI)+'°';$('infoN').textContent=nText;}
+ else {$('labelP').textContent='极性 p';$('labelM').textContent='涡度 m';$('labelG').textContent='螺旋度 γ';$('labelN').textContent='拓扑荷 N';$('infoP').textContent=s.p>0?'+1':'−1';$('infoM').textContent=(s.m>0?'+':'')+s.m;$('infoG').textContent=Math.round(s.g*180/Math.PI)+'°';$('infoN').textContent=nText;}
+ const root=$('infoScroll');root.innerHTML='';for(const [title,body] of d.sections){const sec=document.createElement('section');sec.className='section';const h=document.createElement('h3');h.textContent=title;sec.appendChild(h);if(Array.isArray(body)){const ul=document.createElement('ul');for(const t of body){const li=document.createElement('li');li.textContent=t;ul.appendChild(li)}sec.appendChild(ul)}else{const wrap=document.createElement('div');wrap.innerHTML=body;sec.appendChild(wrap)}root.appendChild(sec)}
+ const rb=$('reprBadge'); rb.hidden=true;
+ if(kind==='afm'){ $('mainSub').textContent='双子晶格分解示意：A/B 等幅、逐点反平行；上下间距仅用于教学拆解'; $('arrowSub').textContent='A/B 实际磁矩分别显示：箭头等长且逐点反平行'; $('colorSub').textContent='统一 Néel-order 方向配色：两幅使用同一色标，便于直接比较 A/B'; $('legendWhite').textContent='白：Néel order +z'; $('legendBlack').textContent='黑：Néel order −z'; $('legendColor').textContent='彩色：Néel order 面内方位'; rb.hidden=false; rb.textContent='教学表示：底色统一编码 Néel order；箭头显示 A/B 实际磁矩'; }
+ else if(kind==='ferri'){ $('mainSub').textContent='双子晶格分解：A/B 逐点反平行且不等幅；绿色 Mnet 标记直接显示残余净磁化'; $('arrowSub').textContent='A/B 实际磁矩分别显示：逐点反平行，B 箭头长度为 A 的 70%（教学比例）'; $('colorSub').textContent='统一方向色标：颜色只编码方向，不编码磁矩幅值；幅值差异由箭头长度表达'; $('legendWhite').textContent='白：纹理参考方向 +z'; $('legendBlack').textContent='黑：纹理参考方向 −z'; $('legendColor').textContent='彩色：纹理参考的面内方位'; rb.hidden=false; rb.textContent='教学表示：统一色标；A/B 不等长反平行；绿色 Mnet 表示残余净磁化'; }
+ else { $('mainSub').textContent='论文风格主视图：底色与箭头同步显示'; $('arrowSub').textContent='只显示局域磁化箭头，用于识别绕转方式'; $('colorSub').textContent='只显示颜色编码，用于对应面外分量与面内方位'; $('legendWhite').textContent='白：+z'; $('legendBlack').textContent='黑：−z'; $('legendColor').textContent='彩色：面内方向'; }
+ renderComposite();
+}
+function syncControlLabels(){
+ $('controlLabelP').textContent='Polarity p'; $('controlLabelM').textContent='Vorticity m'; $('controlLabelG').textContent='Helicity γ';
+ $('controlLabelP').dataset.term='polarity'; $('controlLabelM').dataset.term='vorticity'; $('controlLabelG').dataset.term='helicity';
+ if(kind==='anti'){ $('controlLabelG').textContent='Orientation χ'; $('controlLabelG').dataset.term='orientation'; }
+ if(kind==='meron'){ $('controlLabelP').textContent='Core polarity p'; }
+ if(kind==='afm'){ $('controlLabelP').textContent='AFM reference p'; $('controlLabelM').textContent='AFM reference m'; $('controlLabelG').textContent='AFM reference γ'; }
+ if(kind==='ferri'){ $('controlLabelP').textContent='FiM reference p'; $('controlLabelM').textContent='FiM reference m'; $('controlLabelG').textContent='FiM reference γ'; }
+}
+function updateLabels(){const s=state();$('po').value=s.p>0?'+1':'−1';$('mo').value=s.m;$('go').value=Math.round(s.g*180/Math.PI)+'°';$('co').value=s.c.toFixed(2);$('bo').value=s.b.toFixed(3);$('qo').value=s.q.toFixed(s.q%1?2:0);$('ro').value=s.rings;$('Lo').value=s.L.toFixed(2)}
+function render(){updateLabels();syncControlLabels();syncControlLock();renderMain();renderArrows();renderColor();renderInfo()}
+function applyPreset(key,resetAdvanced=false){const d=TEXTURES[key];kind=d.kind;$('p').value=d.params[0];$('m').value=d.params[1];$('g').value=d.params[2];if(resetAdvanced){$('c').value=DEFAULTS.c;$('beta').value=DEFAULTS.beta;$('q').value=DEFAULTS.q;$('rings').value=DEFAULTS.rings;$('L').value=DEFAULTS.L}render()}
+function setView(v){view=v==='top'?{yaw:0,pitch:.02,zoom:1.0,panX:0,panY:0}:v==='side'?{yaw:-.10,pitch:1.43,zoom:.96,panX:0,panY:40}:{yaw:-.17,pitch:.92,zoom:1.10,panX:0,panY:6};render()}
+let drag=false,last=[0,0],mode='rot';C.main.addEventListener('pointerdown',e=>{drag=true;last=[e.clientX,e.clientY];mode=(e.button===2||e.shiftKey)?'pan':'rot';C.main.setPointerCapture(e.pointerId)});C.main.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-last[0],dy=e.clientY-last[1];last=[e.clientX,e.clientY];if(mode==='rot'){view.yaw+=dx*.0075;view.pitch=clamp(view.pitch+dy*.0075,.02,1.50)}else{view.panX+=dx;view.panY+=dy}render()});C.main.addEventListener('pointerup',()=>drag=false);C.main.addEventListener('pointerleave',()=>drag=false);C.main.addEventListener('contextmenu',e=>e.preventDefault());C.main.addEventListener('wheel',e=>{e.preventDefault();view.zoom=clamp(view.zoom*Math.exp(-e.deltaY*.001),.65,2.5);render()},{passive:false});
+$('preset').addEventListener('change',e=>applyPreset(e.target.value,false));document.querySelectorAll('input').forEach(el=>el.addEventListener('input',render));document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));$('resetPreset').addEventListener('click',()=>{applyPreset($('preset').value,true); setView('paper')});$('exportPNG').addEventListener('click',()=>{const key=$('preset').value,a=document.createElement('a');a.href=C.main.toDataURL('image/png');a.download=(PRESET_EXPORT_NAMES[key]||key)+'.png';a.click()});
+const help=$('helpDialog');$('helpBtn').addEventListener('click',()=>help.showModal());$('closeHelp').addEventListener('click',()=>help.close());
+$('helpBody').innerHTML=`<h3>如何读图</h3><p>建议先看中心与背景的面外方向，再看径向翻转过程；随后沿实空间绕中心一周，判断面内磁化旋转几圈；最后比较箭头相对径向是平行、切向还是介于两者之间。</p><div class="quickStats"><div class="quickStat"><b>N<sub>Sk</sub></b><span>覆盖单位球面的次数与方向</span></div><div class="quickStat"><b>p</b><span>只比较中心与背景的面外方向</span></div><div class="quickStat"><b>m</b><span>绕中心一周时，面内磁化旋转几圈</span></div><div class="quickStat"><b>γ</b><span>面内箭头相对径向偏转多少</span></div></div><div class="quickGrid"><div class="quickCard"><h4>推荐阅读顺序</h4><ul><li>先看主图，建立整体几何印象。</li><li>再看“箭头场”，识别箭头绕转与核心位置。</li><li>最后看“颜色场”，把白 / 黑 / 彩色三类区域与主图逐一对应。</li></ul></div><div class="quickCard"><h4>交互说明</h4><ul><li>“论文视角 / 俯视 / 侧视”用于快速比较不同外观。</li><li>“恢复预设”会同时恢复物理参数、高级渲染参数与默认论文视角。</li><li>对于 bimeron、biskyrmion、skyrmionium，以及反铁磁 / 亚铁磁 skyrmion，建议结合右侧“复合构型 · Composite view”一起阅读；亚铁磁预设中的绿色 Mnet 表示未被抵消的残余净磁化。</li></ul></div></div>`;
+const termDialog=$('termDialog'),termTitle=$('termTitle'),termBody=$('termBody');
+function openTerm(name){const d=TERM_DATA[name]; if(!d) return; termTitle.innerHTML=d.title; termBody.innerHTML=d.html; termDialog.showModal()}
+$('closeTerm').addEventListener('click',()=>termDialog.close());
+document.addEventListener('click',e=>{const el=e.target.closest('[data-term]'); if(!el)return; e.preventDefault(); openTerm(el.dataset.term);});
+window.addEventListener('resize',render); const __qs=new URLSearchParams(location.search); const __preset=__qs.get('preset'); if(__preset&&TEXTURES[__preset]) $('preset').value=__preset; applyPreset($('preset').value||'neel_out',true);
+})();
+</script>
+</body>
+</html>
