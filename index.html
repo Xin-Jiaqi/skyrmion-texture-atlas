@@ -228,8 +228,8 @@ a{text-decoration:none;color:inherit}
   .visualTop{flex-direction:column;align-items:stretch;gap:10px}
   .titleBlock p{white-space:normal}
   .presetWrap{width:100%}
-  .visualBody{grid-template-columns:1fr;grid-template-rows:minmax(430px,55vh) 320px}
-  .splitColumn{grid-template-columns:1fr 1fr;grid-template-rows:1fr}
+  .visualGrid{grid-template-columns:1fr;grid-template-rows:minmax(430px,55vh) 320px}
+  .splitCol{grid-template-columns:1fr 1fr;grid-template-rows:1fr}
   .infoCard{max-height:none;overflow:visible}
   .controlsCard{display:block;height:auto}
   .controlMain,.viewSide,.advanced{margin-top:10px}
@@ -238,8 +238,8 @@ a{text-decoration:none;color:inherit}
 }
 @media (max-width:560px){
   .visualCard{min-height:950px}
-  .visualBody{grid-template-rows:minmax(440px,58vh) 470px}
-  .splitColumn{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .visualGrid{grid-template-rows:minmax(440px,58vh) 470px}
+  .splitCol{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
   .paramStrip{grid-template-columns:1fr 1fr}
   .quickGrid,.quickStats{grid-template-columns:1fr 1fr}
 }

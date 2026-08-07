@@ -20,7 +20,7 @@ jobs:
           test -f CITATION.cff
           test -f docs/guide.md
           test -f references/Beyond_skyrmions_Physics_Reports_895_2021.pdf
-          grep -q 'const PRESETS' index.html || grep -q 'const DATA' index.html
+          grep -q 'const TEXTURES' index.html
           ! grep -R 'YOUR_GITHUB_USERNAME\|topological-magnetic-texture-atlas\|skyrmion_help_v50' README.md docs index.html CITATION.cff
       - name: Check preset count
         run: |
