@@ -3,3 +3,8 @@ test-results/
 playwright-report/
 screenshots/
 .DS_Store
+
+# zhihu 数据回流缓存（勿提交）
+zhihu-sync/data/
+
+__pycache__/
