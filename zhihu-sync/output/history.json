@@ -1,0 +1,19 @@
+{
+  "points": [
+    {
+      "date": "2026-08-08",
+      "totals": {
+        "like_count": 7,
+        "favorite_count": 14,
+        "comment_count": 0
+      },
+      "items": {
+        "skyrmion-texture-atlas": {
+          "like_count": 7,
+          "favorite_count": 14,
+          "comment_count": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-08",
+  "items": [
+    {
+      "id": "skyrmion-texture-atlas",
+      "name": "磁性 Skyrmion 家族 · 交互纹理图鉴",
+      "kind": "repo",
+      "repo": "Xin-Jiaqi/skyrmion-texture-atlas",
+      "page": "https://xin-jiaqi.github.io/skyrmion-texture-atlas/",
+      "zhihu": {
+        "url": "https://zhuanlan.zhihu.com/p/2069027257536999823",
+        "note": "图鉴「延伸阅读」指向的知乎 Skyrmion 家族综述文章"
+      }
+    }
+  ]
+}
