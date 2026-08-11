@@ -5,7 +5,8 @@
   "description": "Browser smoke tests for the Topological Magnetic Texture Atlas single-page app",
   "scripts": {
     "test": "playwright test",
-    "serve": "python3 -m http.server 8080"
+    "serve": "python3 -m http.server 8080",
+    "check:md": "node scripts/check-markdown-math.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.54.0"

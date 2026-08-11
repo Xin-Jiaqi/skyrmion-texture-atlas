@@ -244,12 +244,12 @@ m=0,\pm1,\pm2,\ldots
 
 对于 $m=+1$ 的圆对称 skyrmion，$\gamma$ 表示面内磁化相对实空间径向的统一偏移：
 
-| $\gamma$ | 类型 | 面内磁化外观 |
+| γ | 类型 | 面内磁化外观 |
 |---:|---|---|
-| $0$ | Néel | 径向朝外 |
-| $\pi$ | Néel | 径向朝内 |
-| $+\pi/2$ | Bloch | 沿一种圆周切向旋转 |
-| $-\pi/2$ | Bloch | 沿相反圆周切向旋转 |
+| 0 | Néel | 径向朝外 |
+| π | Néel | 径向朝内 |
+| +π/2 | Bloch | 沿一种圆周切向旋转 |
+| -π/2 | Bloch | 沿相反圆周切向旋转 |
 | 其他角度 | intermediate | 介于径向与切向之间 |
 
 最短理解：
@@ -793,8 +793,8 @@ N_{\mathrm{outer}}=\mp1.
 
 | 对象 | 子结构关系 | 拓扑荷组合 | 一眼识别 |
 |---|---|---|---|
-| biskyrmion | 两个空间上并排、部分重叠的 skyrmion | 同号相加，常为 $\pm2$ | 双核心、花生形 |
-| skyrmionium | 两个同心嵌套的反号 skyrmion 区域 | 异号抵消，总和为 $0$ | 同心环、靶心形 |
+| biskyrmion | 两个空间上并排、部分重叠的 skyrmion | 同号相加，常为 ±2 | 双核心、花生形 |
+| skyrmionium | 两个同心嵌套的反号 skyrmion 区域 | 异号抵消，总和为 0 | 同心环、靶心形 |
 
 ---
 
@@ -1054,52 +1054,52 @@ Q_H=\pm1.
 
 ### 1. 各对象参数与位置总表
 
-| 对象 | 基本组成 | $p$ | $m$ | $\gamma$ | 拓扑量 | 最重要位置 |
+| 对象 | 基本组成 | p | m | γ | 拓扑量 | 最重要位置 |
 |---|---|---:|---:|---:|---:|---|
-| Néel skyrmion | 单个完整 skyrmion | $\pm1$ | $+1$ | $0$ 或 $\pi$ | $N=\pm1$ | Fig. 3(a) |
-| Bloch skyrmion | 单个完整 skyrmion | $\pm1$ | $+1$ | $\pm\pi/2$ | $N=\pm1$ | Fig. 4(b) |
-| Intermediate | 单个完整 skyrmion | $\pm1$ | $+1$ | 任意中间值 | $N=\pm1$ | Fig. 2(b) |
-| Antiskyrmion | 反向 vorticity | $\pm1$ | $-1$ | 表示纹理轴取向 | $N=-p$ | Fig. 2(a) |
-| Higher-order | 多重绕转 | $\pm1$ | $\pm2,\pm3,\ldots$ | 可变 | $N=mp$ | Fig. 2(c) |
-| Meron | 半个 skyrmion | 核心 $\pm1$ | 通常 $\pm1$ | 可变 | $N\approx mp/2$ | Fig. 4(c) |
-| Bimeron | meron + antimeron | 无单一全局值 | 无单一全局值 | 用 $\alpha,\gamma$ | $N=\pm1$ | Figs. 2(d), 8(a) |
-| Biskyrmion | 两个重叠 skyrmion | 两者相同 | 通常均为 $+1$ | 相差 $\pi$ | $N=\pm2$ | Figs. 2(e), 8(b) |
-| Skyrmionium | 内外反号 skyrmion | 无单一值 | 子结构同绕向 | 取决于类型 | $N=0$ | Figs. 2(f), 8(c) |
-| AFM skyrmion | 两个反向子晶格纹理 | 子晶格相反 | 通常相同 | 相差 $\pi$ | 总磁化 $0$，Néel 序 $\pm1$ | Figs. 2(h), 8(d) |
-| FiM skyrmion | 两个不等强度反向纹理 | 子晶格相反 | 通常相同 | 相差 $\pi$ | 子纹理拓扑荷抵消，净磁化不为零 | Fig. 2(g) |
-| Skyrmion tube | skyrmion 沿 $z$ 延伸 | 看横截面 | 看横截面 | 可沿 $z$ 变化 | 每个截面通常 $\pm1$ | Figs. 2(i), 3(c) |
-| Chiral bobber | 中途终止的 tube | 无全局值 | 无全局值 | 无全局值 | 截面由 $\pm1$ 变到 $0$ | Fig. 2(j) |
-| Hopfion | 闭合成环的 tube | 不适用 | 不适用 | 不适用 | 最简单 $Q_H=\pm1$ | Fig. 2(l) |
+| Néel skyrmion | 单个完整 skyrmion | ±1 | +1 | 0 或 π | N=±1 | Fig. 3(a) |
+| Bloch skyrmion | 单个完整 skyrmion | ±1 | +1 | ±π/2 | N=±1 | Fig. 4(b) |
+| Intermediate | 单个完整 skyrmion | ±1 | +1 | 任意中间值 | N=±1 | Fig. 2(b) |
+| Antiskyrmion | 反向 vorticity | ±1 | -1 | 表示纹理轴取向 | N=-p | Fig. 2(a) |
+| Higher-order | 多重绕转 | ±1 | ±2, ±3, … | 可变 | N=mp | Fig. 2(c) |
+| Meron | 半个 skyrmion | 核心 ±1 | 通常 ±1 | 可变 | N≈mp/2 | Fig. 4(c) |
+| Bimeron | meron + antimeron | 无单一全局值 | 无单一全局值 | 用 α, γ | N=±1 | Figs. 2(d), 8(a) |
+| Biskyrmion | 两个重叠 skyrmion | 两者相同 | 通常均为 +1 | 相差 π | N=±2 | Figs. 2(e), 8(b) |
+| Skyrmionium | 内外反号 skyrmion | 无单一值 | 子结构同绕向 | 取决于类型 | N=0 | Figs. 2(f), 8(c) |
+| AFM skyrmion | 两个反向子晶格纹理 | 子晶格相反 | 通常相同 | 相差 π | 总磁化 0，Néel 序 ±1 | Figs. 2(h), 8(d) |
+| FiM skyrmion | 两个不等强度反向纹理 | 子晶格相反 | 通常相同 | 相差 π | 子纹理拓扑荷抵消，净磁化不为零 | Fig. 2(g) |
+| Skyrmion tube | skyrmion 沿 z 延伸 | 看横截面 | 看横截面 | 可沿 z 变化 | 每个截面通常 ±1 | Figs. 2(i), 3(c) |
+| Chiral bobber | 中途终止的 tube | 无全局值 | 无全局值 | 无全局值 | 截面由 ±1 变到 0 | Fig. 2(j) |
+| Hopfion | 闭合成环的 tube | 不适用 | 不适用 | 不适用 | 最简单 Q<sub>H</sub>=±1 | Fig. 2(l) |
 
 ### 2. Fig. 2(a–l) 外观对照
 
 | Panel | 对象 | 图中给出的拓扑信息 | 一眼识别 |
 |---|---|---|---|
-| Fig. 2(a) | antiskyrmion | $m=-1,\ N=-1$ | 径向与切向特征交替，明显各向异性 |
-| Fig. 2(b) | intermediate skyrmion | $\gamma=\pi/4,\ N=1$ | 圆对称，箭头介于径向与切向 |
-| Fig. 2(c) | higher-order skyrmion | $N=2$ | 面内磁化绕转多次 |
-| Fig. 2(d) | bimeron | $N=-1$ | 面内背景，两个相反的面外核心 |
-| Fig. 2(e) | biskyrmion | $N=2$ | 双核心、花生形 |
-| Fig. 2(f) | skyrmionium | $N=0$ | 同心环、靶心结构 |
+| Fig. 2(a) | antiskyrmion | m=-1, N=-1 | 径向与切向特征交替，明显各向异性 |
+| Fig. 2(b) | intermediate skyrmion | γ=π/4, N=1 | 圆对称，箭头介于径向与切向 |
+| Fig. 2(c) | higher-order skyrmion | N=2 | 面内磁化绕转多次 |
+| Fig. 2(d) | bimeron | N=-1 | 面内背景，两个相反的面外核心 |
+| Fig. 2(e) | biskyrmion | N=2 | 双核心、花生形 |
+| Fig. 2(f) | skyrmionium | N=0 | 同心环、靶心结构 |
 | Fig. 2(g) | ferrimagnetic skyrmion | 子纹理拓扑荷补偿 | 两套反向纹理强度不同 |
 | Fig. 2(h) | antiferromagnetic skyrmion | 子纹理拓扑荷补偿 | 两套重合且反向的纹理 |
 | Fig. 2(i) | skyrmion tube | 横截面为 skyrmion | 贯穿样品的柱状纹理 |
 | Fig. 2(j) | chiral bobber | tube 在 Bloch point 终止 | 截短并收尖的 skyrmion 管 |
 | Fig. 2(k) | Bloch–anti-Bloch points | 三维磁化奇点对 | 两个 hedgehog 型球状奇点 |
-| Fig. 2(l) | hopfion | 使用 $Q_H$ 表征 | 闭合甜甜圈结构 |
+| Fig. 2(l) | hopfion | 使用 Q<sub>H</sub> 表征 | 闭合甜甜圈结构 |
 
 ### 3. 组合关系总表
 
 | 对象 | 构造方式 | 子结构拓扑荷 | 总拓扑荷/拓扑量 |
 |---|---|---|---|
-| meron | 半个 skyrmion | 单个 $\pm1/2$ | $\pm1/2$ |
-| bimeron | meron + antimeron | 同号 $\pm1/2$ 与 $\pm1/2$ | $\pm1$ |
-| biskyrmion | 两个同号 skyrmion 部分重叠 | $\pm1$ 与 $\pm1$ | $\pm2$ |
-| skyrmionium | 内外反号 skyrmion 同心嵌套 | $+1$ 与 $-1$ | $0$ |
-| AFM skyrmion | 两个反向子晶格 skyrmion | $+1$ 与 $-1$ | 总磁化为 $0$；Néel 序为 $\pm1$ |
-| FiM skyrmion | 两个不等强度反向子晶格 skyrmion | $+1$ 与 $-1$ | 子纹理荷补偿；净磁化有限 |
-| chiral bobber | 终止的 skyrmion tube | 横截面从 $\pm1$ 变为 $0$ | Bloch point 连接两类截面 |
-| hopfion | 闭合的 skyrmion tube | 局部截面通常为 $\pm1$ | Hopf invariant $Q_H$ |
+| meron | 半个 skyrmion | 单个 ±1/2 | ±1/2 |
+| bimeron | meron + antimeron | 同号 ±1/2 与 ±1/2 | ±1 |
+| biskyrmion | 两个同号 skyrmion 部分重叠 | ±1 与 ±1 | ±2 |
+| skyrmionium | 内外反号 skyrmion 同心嵌套 | +1 与 -1 | 0 |
+| AFM skyrmion | 两个反向子晶格 skyrmion | +1 与 -1 | 总磁化为 0；Néel 序为 ±1 |
+| FiM skyrmion | 两个不等强度反向子晶格 skyrmion | +1 与 -1 | 子纹理荷补偿；净磁化有限 |
+| chiral bobber | 终止的 skyrmion tube | 横截面从 ±1 变为 0 | Bloch point 连接两类截面 |
+| hopfion | 闭合的 skyrmion tube | 局部截面通常为 ±1 | Hopf invariant Q<sub>H</sub> |
 
 ---
 
@@ -1434,39 +1434,39 @@ Skyrmionium 由内外两个拓扑荷相反的同心子结构组成，中心和�
 
 ### 参数总表
 
-| 对象 | 基本组成 | $p$ | $m$ | $\gamma$ | 拓扑量 | 最重要位置 |
+| 对象 | 基本组成 | p | m | γ | 拓扑量 | 最重要位置 |
 |---|---|---:|---:|---:|---:|---|
-| Néel skyrmion | 单个完整 skyrmion | $\pm1$ | $+1$ | $0$ 或 $\pi$ | $N=\pm1$ | Fig. 3(a) |
-| Bloch skyrmion | 单个完整 skyrmion | $\pm1$ | $+1$ | $\pm\pi/2$ | $N=\pm1$ | Fig. 4(b) |
-| Intermediate | 单个完整 skyrmion | $\pm1$ | $+1$ | 任意中间值 | $N=\pm1$ | Fig. 2(b) |
-| Antiskyrmion | 反向 vorticity | $\pm1$ | $-1$ | 表示纹理轴取向 | $N=-p$ | Fig. 2(a) |
-| Higher-order | 多重绕转 | $\pm1$ | $\pm2,\pm3,\ldots$ | 可变 | $N=mp$ | Fig. 2(c) |
-| Meron | 半个 skyrmion | 核心 $\pm1$ | 通常 $\pm1$ | 可变 | $N\approx mp/2$ | Fig. 4(c) |
-| Bimeron | meron + antimeron | 无单一全局值 | 无单一全局值 | 用 $\alpha,\gamma$ | $N=\pm1$ | Figs. 2(d), 8(a) |
-| Biskyrmion | 两个重叠 skyrmion | 两者相同 | 通常均为 $+1$ | 相差 $\pi$ | $N=\pm2$ | Figs. 2(e), 8(b) |
-| Skyrmionium | 内外反号 skyrmion | 无单一值 | 子结构同绕向 | 取决于类型 | $N=0$ | Figs. 2(f), 8(c) |
-| AFM skyrmion | 两个反向子晶格纹理 | 子晶格相反 | 通常相同 | 相差 $\pi$ | 总磁化 $0$，Néel 序 $\pm1$ | Figs. 2(h), 8(d) |
-| FiM skyrmion | 两个不等强度反向纹理 | 子晶格相反 | 通常相同 | 相差 $\pi$ | 子纹理荷抵消，净磁化不为零 | Fig. 2(g) |
-| Skyrmion tube | skyrmion 沿 $z$ 延伸 | 看横截面 | 看横截面 | 可沿 $z$ 变化 | 每个截面通常 $\pm1$ | Figs. 2(i), 3(c) |
-| Chiral bobber | 中途终止的 tube | 无全局值 | 无全局值 | 无全局值 | 截面由 $\pm1$ 变到 $0$ | Fig. 2(j) |
-| Hopfion | 闭合成环的 tube | 不适用 | 不适用 | 不适用 | 最简单 $Q_H=\pm1$ | Fig. 2(l) |
+| Néel skyrmion | 单个完整 skyrmion | ±1 | +1 | 0 或 π | N=±1 | Fig. 3(a) |
+| Bloch skyrmion | 单个完整 skyrmion | ±1 | +1 | ±π/2 | N=±1 | Fig. 4(b) |
+| Intermediate | 单个完整 skyrmion | ±1 | +1 | 任意中间值 | N=±1 | Fig. 2(b) |
+| Antiskyrmion | 反向 vorticity | ±1 | -1 | 表示纹理轴取向 | N=-p | Fig. 2(a) |
+| Higher-order | 多重绕转 | ±1 | ±2, ±3, … | 可变 | N=mp | Fig. 2(c) |
+| Meron | 半个 skyrmion | 核心 ±1 | 通常 ±1 | 可变 | N≈mp/2 | Fig. 4(c) |
+| Bimeron | meron + antimeron | 无单一全局值 | 无单一全局值 | 用 α, γ | N=±1 | Figs. 2(d), 8(a) |
+| Biskyrmion | 两个重叠 skyrmion | 两者相同 | 通常均为 +1 | 相差 π | N=±2 | Figs. 2(e), 8(b) |
+| Skyrmionium | 内外反号 skyrmion | 无单一值 | 子结构同绕向 | 取决于类型 | N=0 | Figs. 2(f), 8(c) |
+| AFM skyrmion | 两个反向子晶格纹理 | 子晶格相反 | 通常相同 | 相差 π | 总磁化 0，Néel 序 ±1 | Figs. 2(h), 8(d) |
+| FiM skyrmion | 两个不等强度反向纹理 | 子晶格相反 | 通常相同 | 相差 π | 子纹理荷抵消，净磁化不为零 | Fig. 2(g) |
+| Skyrmion tube | skyrmion 沿 z 延伸 | 看横截面 | 看横截面 | 可沿 z 变化 | 每个截面通常 ±1 | Figs. 2(i), 3(c) |
+| Chiral bobber | 中途终止的 tube | 无全局值 | 无全局值 | 无全局值 | 截面由 ±1 变到 0 | Fig. 2(j) |
+| Hopfion | 闭合成环的 tube | 不适用 | 不适用 | 不适用 | 最简单 Q<sub>H</sub>=±1 | Fig. 2(l) |
 
 ### Fig. 2(a–l) 外观对照
 
 | Panel | 对象 | 图中给出的拓扑信息 | 一眼识别 |
 |---|---|---|---|
-| Fig. 2(a) | antiskyrmion | $m=-1,\ N=-1$ | 径向与切向特征交替、明显各向异性 |
-| Fig. 2(b) | intermediate skyrmion | $\gamma=\pi/4,\ N=1$ | 圆对称，箭头介于径向和切向 |
-| Fig. 2(c) | higher-order skyrmion | $N=2$ | 面内磁化绕转多次 |
-| Fig. 2(d) | bimeron | $N=-1$ | 面内背景、两个相反的面外核心 |
-| Fig. 2(e) | biskyrmion | $N=2$ | 双核心、花生形 |
-| Fig. 2(f) | skyrmionium | $N=0$ | 同心环、靶心结构 |
+| Fig. 2(a) | antiskyrmion | m=-1, N=-1 | 径向与切向特征交替、明显各向异性 |
+| Fig. 2(b) | intermediate skyrmion | γ=π/4, N=1 | 圆对称，箭头介于径向和切向 |
+| Fig. 2(c) | higher-order skyrmion | N=2 | 面内磁化绕转多次 |
+| Fig. 2(d) | bimeron | N=-1 | 面内背景、两个相反的面外核心 |
+| Fig. 2(e) | biskyrmion | N=2 | 双核心、花生形 |
+| Fig. 2(f) | skyrmionium | N=0 | 同心环、靶心结构 |
 | Fig. 2(g) | ferrimagnetic skyrmion | 子纹理拓扑荷补偿 | 两套反向纹理强度不同 |
 | Fig. 2(h) | antiferromagnetic skyrmion | 子纹理拓扑荷补偿 | 两套重合且反向的纹理 |
 | Fig. 2(i) | skyrmion tube | 横截面为 skyrmion | 贯穿样品的柱状纹理 |
 | Fig. 2(j) | chiral bobber | tube 在 Bloch point 终止 | 截短并收尖的 skyrmion 管 |
 | Fig. 2(k) | Bloch–anti-Bloch points | 三维磁化奇点对 | 两个 hedgehog 型球状奇点 |
-| Fig. 2(l) | hopfion | 使用 $Q_H$ 表征 | 闭合甜甜圈结构 |
+| Fig. 2(l) | hopfion | 使用 Q<sub>H</sub> 表征 | 闭合甜甜圈结构 |
 
 ### 最终物理图像
 
