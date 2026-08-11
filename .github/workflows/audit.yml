@@ -22,6 +22,11 @@ jobs:
           test -f references/Beyond_skyrmions_Physics_Reports_895_2021.pdf
           grep -q 'const TEXTURES' index.html
           ! grep -R 'YOUR_GITHUB_USERNAME\|topological-magnetic-texture-atlas\|skyrmion_help_v50' README.md docs index.html CITATION.cff
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check markdown math rendering constraints
+        run: node scripts/check-markdown-math.mjs
       - name: Check preset count
         run: |
           count=$(grep -o '<option value=' index.html | wc -l | tr -d ' ')
